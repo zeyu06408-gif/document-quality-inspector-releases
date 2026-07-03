@@ -117,6 +117,11 @@ jobs:
       RELEASE_VERSION: ${{ inputs.version }}
       RELEASE_NOTES: ${{ inputs.release_notes }}
     steps:
+      - name: 读取更新仓库
+        uses: actions/checkout@v4
+        with:
+          path: publisher
+
       - name: 汇总构建产物
         uses: actions/download-artifact@v4
         with:
@@ -128,19 +133,42 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          tag="app-v${RELEASE_VERSION}"
           mac_file="document-quality-inspector_${RELEASE_VERSION}_aarch64.app.tar.gz"
           windows_file="document-quality-inspector_${RELEASE_VERSION}_x64-setup.exe"
+          cdn_base="https://cdn.jsdelivr.net/gh/${GITHUB_REPOSITORY}@cdn-v${RELEASE_VERSION}/updates/v${RELEASE_VERSION}"
           jq -n \
             --arg version "$RELEASE_VERSION" \
             --arg notes "$RELEASE_NOTES" \
             --arg pub_date "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
             --arg mac_signature "$(tr -d '\r\n' < "release-assets/${mac_file}.sig")" \
             --arg windows_signature "$(tr -d '\r\n' < "release-assets/${windows_file}.sig")" \
-            --arg mac_url "https://github.com/${GITHUB_REPOSITORY}/releases/download/${tag}/${mac_file}" \
-            --arg windows_url "https://github.com/${GITHUB_REPOSITORY}/releases/download/${tag}/${windows_file}" \
+            --arg mac_url "${cdn_base}/${mac_file}" \
+            --arg windows_url "${cdn_base}/${windows_file}" \
             '{version:$version,notes:$notes,pub_date:$pub_date,platforms:{"darwin-aarch64":{signature:$mac_signature,url:$mac_url},"windows-x86_64":{signature:$windows_signature,url:$windows_url}}}' \
             > release-assets/latest.json
+
+      - name: 发布大陆可访问的 CDN 文件
+        shell: bash
+        run: |
+          set -euo pipefail
+          version_dir="publisher/updates/v${RELEASE_VERSION}"
+          mkdir -p "$version_dir"
+          cp release-assets/document-quality-inspector_${RELEASE_VERSION}_aarch64.app.tar.gz "$version_dir/"
+          cp release-assets/document-quality-inspector_${RELEASE_VERSION}_x64-setup.exe "$version_dir/"
+          cp release-assets/latest.json publisher/latest.json
+          cd publisher
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add latest.json "updates/v${RELEASE_VERSION}"
+          git commit -m "release: publish CDN files for ${RELEASE_VERSION}"
+          git tag "cdn-v${RELEASE_VERSION}"
+          git push origin HEAD:main "cdn-v${RELEASE_VERSION}"
+
+      - name: 刷新 CDN 更新清单
+        shell: bash
+        run: |
+          curl --fail --silent --show-error \
+            "https://purge.jsdelivr.net/gh/${GITHUB_REPOSITORY}@main/latest.json"
 
       - name: 创建 GitHub Release
         shell: bash
