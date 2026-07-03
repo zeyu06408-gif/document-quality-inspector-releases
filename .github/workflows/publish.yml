@@ -1,0 +1,159 @@
+name: 发布签名桌面版本
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "版本号（必须与源码中的版本一致，如 0.2.0）"
+        required: true
+        type: string
+      source_ref:
+        description: "私有源码仓库的分支、标签或提交"
+        required: true
+        default: "main"
+        type: string
+      release_notes:
+        description: "本次更新说明"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: 构建 ${{ matrix.name }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: macOS Apple Silicon
+            os: macos-latest
+            platform: macos
+            rust_target: aarch64-apple-darwin
+          - name: Windows x64
+            os: windows-latest
+            platform: windows
+            rust_target: x86_64-pc-windows-msvc
+    runs-on: ${{ matrix.os }}
+    env:
+      RELEASE_VERSION: ${{ inputs.version }}
+      TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+      TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
+    steps:
+      - name: 读取私有源码
+        uses: actions/checkout@v4
+        with:
+          repository: zeyu06408-gif/document-quality-inspector
+          ref: ${{ inputs.source_ref }}
+          ssh-key: ${{ secrets.SOURCE_DEPLOY_KEY }}
+
+      - name: 配置 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: 配置 pnpm
+        shell: bash
+        run: |
+          corepack enable
+          corepack prepare pnpm@10.34.4 --activate
+
+      - name: 配置 Rust
+        shell: bash
+        run: |
+          rustup update stable
+          rustup default stable
+          rustup target add "${{ matrix.rust_target }}"
+
+      - name: 核对版本号
+        shell: bash
+        run: |
+          node -e 'const fs=require("fs"); const expected=process.env.RELEASE_VERSION; const pkg=JSON.parse(fs.readFileSync("package.json")); const conf=JSON.parse(fs.readFileSync("src-tauri/tauri.conf.json")); const cargo=fs.readFileSync("src-tauri/Cargo.toml","utf8").match(/^version = "([^"]+)"/m)?.[1]; const versions=[pkg.version,conf.version,cargo]; if(versions.some(v=>v!==expected)){console.error(`版本不一致：期望 ${expected}，实际 ${versions.join(" / ")}`); process.exit(1)}'
+
+      - name: 安装依赖
+        run: pnpm install --frozen-lockfile
+
+      - name: 构建 macOS 安装包
+        if: matrix.platform == 'macos'
+        run: pnpm tauri build --target aarch64-apple-darwin --bundles app,dmg
+
+      - name: 整理 macOS 发布文件
+        if: matrix.platform == 'macos'
+        shell: bash
+        run: |
+          mkdir -p release-assets
+          cp src-tauri/target/aarch64-apple-darwin/release/bundle/macos/*.app.tar.gz "release-assets/document-quality-inspector_${RELEASE_VERSION}_aarch64.app.tar.gz"
+          cp src-tauri/target/aarch64-apple-darwin/release/bundle/macos/*.app.tar.gz.sig "release-assets/document-quality-inspector_${RELEASE_VERSION}_aarch64.app.tar.gz.sig"
+          cp src-tauri/target/aarch64-apple-darwin/release/bundle/dmg/*.dmg "release-assets/document-quality-inspector_${RELEASE_VERSION}_aarch64.dmg"
+
+      - name: 构建 Windows 安装包
+        if: matrix.platform == 'windows'
+        run: pnpm tauri build --target x86_64-pc-windows-msvc --bundles nsis
+
+      - name: 整理 Windows 发布文件
+        if: matrix.platform == 'windows'
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force release-assets | Out-Null
+          $installer = Get-ChildItem src-tauri/target/x86_64-pc-windows-msvc/release/bundle/nsis/*.exe | Select-Object -First 1
+          Copy-Item $installer.FullName "release-assets/document-quality-inspector_${env:RELEASE_VERSION}_x64-setup.exe"
+          Copy-Item "$($installer.FullName).sig" "release-assets/document-quality-inspector_${env:RELEASE_VERSION}_x64-setup.exe.sig"
+
+      - name: 暂存平台产物
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-${{ matrix.platform }}
+          path: release-assets/*
+          if-no-files-found: error
+          retention-days: 3
+
+  publish:
+    name: 验证并发布
+    needs: build
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RELEASE_VERSION: ${{ inputs.version }}
+      RELEASE_NOTES: ${{ inputs.release_notes }}
+    steps:
+      - name: 汇总构建产物
+        uses: actions/download-artifact@v4
+        with:
+          pattern: release-*
+          path: release-assets
+          merge-multiple: true
+
+      - name: 生成更新清单
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag="app-v${RELEASE_VERSION}"
+          mac_file="document-quality-inspector_${RELEASE_VERSION}_aarch64.app.tar.gz"
+          windows_file="document-quality-inspector_${RELEASE_VERSION}_x64-setup.exe"
+          jq -n \
+            --arg version "$RELEASE_VERSION" \
+            --arg notes "$RELEASE_NOTES" \
+            --arg pub_date "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            --arg mac_signature "$(tr -d '\r\n' < "release-assets/${mac_file}.sig")" \
+            --arg windows_signature "$(tr -d '\r\n' < "release-assets/${windows_file}.sig")" \
+            --arg mac_url "https://github.com/${GITHUB_REPOSITORY}/releases/download/${tag}/${mac_file}" \
+            --arg windows_url "https://github.com/${GITHUB_REPOSITORY}/releases/download/${tag}/${windows_file}" \
+            '{version:$version,notes:$notes,pub_date:$pub_date,platforms:{"darwin-aarch64":{signature:$mac_signature,url:$mac_url},"windows-x86_64":{signature:$windows_signature,url:$windows_url}}}' \
+            > release-assets/latest.json
+
+      - name: 创建 GitHub Release
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag="app-v${RELEASE_VERSION}"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            echo "版本 ${tag} 已存在，拒绝覆盖。" >&2
+            exit 1
+          fi
+          gh release create "$tag" release-assets/* \
+            --repo "$GITHUB_REPOSITORY" \
+            --target main \
+            --title "文书质检 v${RELEASE_VERSION}" \
+            --notes "$RELEASE_NOTES" \
+            --latest
