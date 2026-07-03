@@ -156,7 +156,7 @@ jobs:
           set -euo pipefail
           mac_file="document-quality-inspector_${RELEASE_VERSION}_aarch64.app.tar.gz"
           windows_file="document-quality-inspector_${RELEASE_VERSION}_x64-setup.exe"
-          cdn_base="https://cdn.jsdelivr.net/gh/${GITHUB_REPOSITORY}@cdn-v${RELEASE_VERSION}/updates/v${RELEASE_VERSION}"
+          cdn_base="https://cdn.jsdelivr.net/gh/${GITHUB_REPOSITORY}@main/updates/v${RELEASE_VERSION}"
           jq -n \
             --arg version "$RELEASE_VERSION" \
             --arg notes "$RELEASE_NOTES" \
@@ -172,6 +172,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          git -C publisher pull --rebase origin main
           version_dir="publisher/updates/v${RELEASE_VERSION}"
           mkdir -p "$version_dir"
           cp release-assets/document-quality-inspector_${RELEASE_VERSION}_aarch64.app.tar.gz "$version_dir/"
@@ -182,14 +183,19 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add latest.json "updates/v${RELEASE_VERSION}"
           git commit -m "release: publish CDN files for ${RELEASE_VERSION}"
-          git tag "cdn-v${RELEASE_VERSION}"
-          git push origin HEAD:main "cdn-v${RELEASE_VERSION}"
+          git push origin HEAD:main
 
       - name: 刷新 CDN 更新清单
         shell: bash
         run: |
-          curl --fail --silent --show-error \
-            "https://purge.jsdelivr.net/gh/${GITHUB_REPOSITORY}@main/latest.json"
+          for path in \
+            "latest.json" \
+            "updates/v${RELEASE_VERSION}/document-quality-inspector_${RELEASE_VERSION}_aarch64.app.tar.gz" \
+            "updates/v${RELEASE_VERSION}/document-quality-inspector_${RELEASE_VERSION}_x64-setup.exe"
+          do
+            curl --fail --silent --show-error \
+              "https://purge.jsdelivr.net/gh/${GITHUB_REPOSITORY}@main/${path}"
+          done
 
       - name: 创建 GitHub Release
         shell: bash
