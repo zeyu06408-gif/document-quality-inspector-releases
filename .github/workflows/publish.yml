@@ -167,6 +167,25 @@ jobs:
               "https://purge.jsdelivr.net/gh/${GITHUB_REPOSITORY}@main/${path}"
           done
 
+      - name: 验证客户端更新地址
+        shell: bash
+        run: |
+          set -euo pipefail
+          endpoint="https://cdn.jsdelivr.net/gh/${GITHUB_REPOSITORY}@main/latest.json"
+          for attempt in $(seq 1 18); do
+            actual="$(curl --fail --silent --show-error "$endpoint" | jq -r '.version // empty' || true)"
+            if [ "$actual" = "$RELEASE_VERSION" ]; then
+              echo "客户端更新地址已返回 ${RELEASE_VERSION}"
+              exit 0
+            fi
+            echo "第 ${attempt} 次校验仍返回 ${actual:-无版本}，10 秒后重试"
+            curl --fail --silent --show-error \
+              "https://purge.jsdelivr.net/gh/${GITHUB_REPOSITORY}@main/latest.json" >/dev/null
+            sleep 10
+          done
+          echo "CDN 更新清单未传播到 ${RELEASE_VERSION}，拒绝宣告发布成功" >&2
+          exit 1
+
       - name: 创建 GitHub Release
         shell: bash
         run: |
