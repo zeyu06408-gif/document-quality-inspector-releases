@@ -1,11 +1,11 @@
 {
-  "version": "0.2.6",
-  "notes": "修复 Windows 旧版 DOC 直接抽取文本导致表格、段落结构丢失和基础信息识别失败的问题：导入 DOC 时先由 Word/WPS 后台转换为真正的 DOCX，再使用现有 DOCX 解析器识别。",
-  "pub_date": "2026-07-04T17:20:02Z",
+  "version": "0.2.7",
+  "notes": "修复旧版 DOC 转换后的检察官姓名识别，兼容职务与姓名分段及检察官助理同排格式；当前阶段暂不处理不起诉决定书，识别后自动跳过，相关功能代码继续保留。",
+  "pub_date": "2026-07-04T18:08:21Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazFYRXNWdEVkcUR3WFZvK2NRVE5YKzZzaWtXSm4vb3B1Uk5uTmRIRUQyZnI1OU13VzBNM2VzZEVaejBGRWJqTjdJclVQdjJodC9kVDVvajJuNERMcmdFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzMTg1NTYyCWZpbGU65paH5Lmm6LSo5qOAXzAuMi42X3g2NC1zZXR1cC5leGUKYmJiaFhEd1lGOWEzNEFublpJOTdNNGFGaWpoZjZPZmxzL2gyN0dCV2Nab1I3UnVGZzM0N28rQ21oaDZhS0ZRS0V2QlBPemtnS090TURCRm5PaFFEREE9PQo=",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.6/document-quality-inspector_0.2.6_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazVYQmkxOHBqQnpxSk9PcFpiVFM3NkQ1TURTYzhIZ2ovb0g4Y1AxcXp1NEZnU2ZOVmxEU2JSUFNHT2JucmdoSzdZQWRaTWlqZWRSSXdjY0dBNFprSUFNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzMTg4NDY5CWZpbGU65paH5Lmm6LSo5qOAXzAuMi43X3g2NC1zZXR1cC5leGUKOEFEeXZzTGRMVU0xVnlNejFqS09LMXl1eVZpbkluaTk0NFZIZzAwUUVoY1BqUmpVS2N6SHdZVVZkZ1JDOFRtQWtHNGJkRkdqKzNmR2tIdFBVZitKQXc9PQo=",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.7/document-quality-inspector_0.2.7_x64-setup.exe.bin"
     }
   }
 }
