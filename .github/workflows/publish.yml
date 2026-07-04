@@ -22,20 +22,8 @@ permissions:
 
 jobs:
   build:
-    name: 构建 ${{ matrix.name }}
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - name: macOS Apple Silicon
-            os: macos-latest
-            platform: macos
-            rust_target: aarch64-apple-darwin
-          - name: Windows x64
-            os: windows-latest
-            platform: windows
-            rust_target: x86_64-pc-windows-msvc
-    runs-on: ${{ matrix.os }}
+    name: 构建 Windows x64
+    runs-on: windows-latest
     env:
       RELEASE_VERSION: ${{ inputs.version }}
       TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
@@ -74,7 +62,7 @@ jobs:
         run: |
           rustup update stable
           rustup default stable
-          rustup target add "${{ matrix.rust_target }}"
+          rustup target add x86_64-pc-windows-msvc
 
       - name: 恢复 Rust 缓存
         uses: actions/cache@v4
@@ -83,7 +71,7 @@ jobs:
             ~/.cargo/registry
             ~/.cargo/git
             src-tauri/target
-          key: ${{ runner.os }}-rust-${{ matrix.rust_target }}-${{ hashFiles('src-tauri/Cargo.lock') }}
+          key: ${{ runner.os }}-rust-x86_64-pc-windows-msvc-${{ hashFiles('src-tauri/Cargo.lock') }}
           restore-keys: |
             ${{ runner.os }}-rust-${{ matrix.rust_target }}-
 
@@ -95,25 +83,10 @@ jobs:
       - name: 安装依赖
         run: pnpm install --frozen-lockfile
 
-      - name: 构建 macOS 安装包
-        if: matrix.platform == 'macos'
-        run: pnpm tauri build --target aarch64-apple-darwin --bundles app,dmg
-
-      - name: 整理 macOS 发布文件
-        if: matrix.platform == 'macos'
-        shell: bash
-        run: |
-          mkdir -p release-assets
-          cp src-tauri/target/aarch64-apple-darwin/release/bundle/macos/*.app.tar.gz "release-assets/document-quality-inspector_${RELEASE_VERSION}_aarch64.app.tar.gz"
-          cp src-tauri/target/aarch64-apple-darwin/release/bundle/macos/*.app.tar.gz.sig "release-assets/document-quality-inspector_${RELEASE_VERSION}_aarch64.app.tar.gz.sig"
-          cp src-tauri/target/aarch64-apple-darwin/release/bundle/dmg/*.dmg "release-assets/document-quality-inspector_${RELEASE_VERSION}_aarch64.dmg"
-
       - name: 构建 Windows 安装包
-        if: matrix.platform == 'windows'
         run: pnpm tauri build --target x86_64-pc-windows-msvc --bundles nsis
 
       - name: 整理 Windows 发布文件
-        if: matrix.platform == 'windows'
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force release-assets | Out-Null
@@ -124,7 +97,7 @@ jobs:
       - name: 暂存平台产物
         uses: actions/upload-artifact@v4
         with:
-          name: release-${{ matrix.platform }}
+          name: release-windows
           path: release-assets/*
           if-no-files-found: error
           retention-days: 3
@@ -154,7 +127,6 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          mac_file="document-quality-inspector_${RELEASE_VERSION}_aarch64.app.tar.gz"
           windows_file="document-quality-inspector_${RELEASE_VERSION}_x64-setup.exe"
           windows_cdn_file="${windows_file}.bin"
           cdn_base="https://cdn.jsdelivr.net/gh/${GITHUB_REPOSITORY}@main/updates/v${RELEASE_VERSION}"
@@ -162,11 +134,9 @@ jobs:
             --arg version "$RELEASE_VERSION" \
             --arg notes "$RELEASE_NOTES" \
             --arg pub_date "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
-            --arg mac_signature "$(tr -d '\r\n' < "release-assets/${mac_file}.sig")" \
             --arg windows_signature "$(tr -d '\r\n' < "release-assets/${windows_file}.sig")" \
-            --arg mac_url "${cdn_base}/${mac_file}" \
             --arg windows_url "${cdn_base}/${windows_cdn_file}" \
-            '{version:$version,notes:$notes,pub_date:$pub_date,platforms:{"darwin-aarch64":{signature:$mac_signature,url:$mac_url},"windows-x86_64":{signature:$windows_signature,url:$windows_url}}}' \
+            '{version:$version,notes:$notes,pub_date:$pub_date,platforms:{"windows-x86_64":{signature:$windows_signature,url:$windows_url}}}' \
             > release-assets/latest.json
 
       - name: 发布大陆可访问的 CDN 文件
@@ -176,7 +146,6 @@ jobs:
           git -C publisher pull --rebase origin main
           version_dir="publisher/updates/v${RELEASE_VERSION}"
           mkdir -p "$version_dir"
-          cp release-assets/document-quality-inspector_${RELEASE_VERSION}_aarch64.app.tar.gz "$version_dir/"
           cp release-assets/document-quality-inspector_${RELEASE_VERSION}_x64-setup.exe \
             "$version_dir/document-quality-inspector_${RELEASE_VERSION}_x64-setup.exe.bin"
           cp release-assets/latest.json publisher/latest.json
@@ -192,7 +161,6 @@ jobs:
         run: |
           for path in \
             "latest.json" \
-            "updates/v${RELEASE_VERSION}/document-quality-inspector_${RELEASE_VERSION}_aarch64.app.tar.gz" \
             "updates/v${RELEASE_VERSION}/document-quality-inspector_${RELEASE_VERSION}_x64-setup.exe.bin"
           do
             curl --fail --silent --show-error \
