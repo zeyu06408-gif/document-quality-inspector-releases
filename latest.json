@@ -1,11 +1,11 @@
 {
-  "version": "0.2.5",
-  "notes": "修复 Windows 旧版 DOC 经 Word/WPS 转换后中文编码异常、导致文书类型和基础信息全部待确认的问题；兼容带字符间空格的标题与检察院名称；优化导入信息区密度，年度四位数完整显示。",
-  "pub_date": "2026-07-04T16:57:54Z",
+  "version": "0.2.6",
+  "notes": "修复 Windows 旧版 DOC 直接抽取文本导致表格、段落结构丢失和基础信息识别失败的问题：导入 DOC 时先由 Word/WPS 后台转换为真正的 DOCX，再使用现有 DOCX 解析器识别。",
+  "pub_date": "2026-07-04T17:20:02Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazhNOW1DdkRqTngxYTZHaWltVC81V0prMnBPcXFuTGRoWTRFaUtuK1Jqb1RXTS91L3gweTN5VENOY241SmxQcFk4RlJZTkppZ3o3cUVPRkpmeUpJMmc0PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzMTg0MjQ2CWZpbGU65paH5Lmm6LSo5qOAXzAuMi41X3g2NC1zZXR1cC5leGUKR1h4aGxCQVBYOXRYdXhVcFpDY2wwOTZQMnVTbkhMZWpYVEFVL205elhPS0lLRXR5M1RLZXl3dWtVRW9PQVNCdWtlZXlhem1iaE1GWG1LR1dUd20zQ3c9PQo=",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.5/document-quality-inspector_0.2.5_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazFYRXNWdEVkcUR3WFZvK2NRVE5YKzZzaWtXSm4vb3B1Uk5uTmRIRUQyZnI1OU13VzBNM2VzZEVaejBGRWJqTjdJclVQdjJodC9kVDVvajJuNERMcmdFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzMTg1NTYyCWZpbGU65paH5Lmm6LSo5qOAXzAuMi42X3g2NC1zZXR1cC5leGUKYmJiaFhEd1lGOWEzNEFublpJOTdNNGFGaWpoZjZPZmxzL2gyN0dCV2Nab1I3UnVGZzM0N28rQ21oaDZhS0ZRS0V2QlBPemtnS090TURCRm5PaFFEREE9PQo=",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.6/document-quality-inspector_0.2.6_x64-setup.exe.bin"
     }
   }
 }
