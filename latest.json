@@ -1,11 +1,11 @@
 {
-  "version": "0.2.8",
-  "notes": "修复县级市地区识别，东台市等县级市可正确归类；更正江苏省盐城经济技术开发区人民检察院全称规则；避免 AI 机械要求开发区法院、检察院名称加注地级市。",
-  "pub_date": "2026-07-05T08:52:50Z",
+  "version": "0.2.9",
+  "notes": "修复同一检察院因省级前缀不同被重复统计的问题；自动合并既有重复机构和检察官记录，并统一总体报告及按院 Excel 分组。",
+  "pub_date": "2026-07-06T07:02:24Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNa3o1MEI0aWxqdVZjQ1F3QVhLQjY0alZxeUFMTTdGQXp6QXNhYmZVRWRMSXBXYnliK1NOWnhHdkNjOFlMYVNhRmFjYXpyeGZVUlZLdzZwdlNja1dKV3dvPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzMjQxNTM5CWZpbGU65paH5Lmm6LSo5qOAXzAuMi44X3g2NC1zZXR1cC5leGUKTjdxREhzYnA4VmE0K3YxZXFpSWRNVlRaeDR1a2lxNTB3VWlJVEp2MGZHVDBZellmZ0RRZkw3aUEzMy9SZzk1VEZHbTVWSmhGZ25vWDN5ZTdSYkRIQ1E9PQo=",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.8/document-quality-inspector_0.2.8_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazU5Rk41RG0xdTFGRDBZdzdTQmlWcUV2Y20ydDhaaWxGVmhGNzlNV1BVUlBXT3NnU25FVGk5eThlU2JQK01ER0Y0ekVXcU43eWdqWXNXM01jZXV4QmcwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzMzIxMzA2CWZpbGU65paH5Lmm6LSo5qOAXzAuMi45X3g2NC1zZXR1cC5leGUKb2tDL1d4OEhFL3hMcitMMG1aVk9VbHMzN1lDK20rNWZzdUdFOVIyMktKUEtOSWJyY0pUOER6RU1LNE9ib09kMnhZZW1HdnFLRWIya2JicUp1bnZuQWc9PQo=",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.9/document-quality-inspector_0.2.9_x64-setup.exe.bin"
     }
   }
 }
