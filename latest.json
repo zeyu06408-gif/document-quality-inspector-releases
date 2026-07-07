@@ -1,11 +1,11 @@
 {
-  "version": "0.2.9",
-  "notes": "修复同一检察院因省级前缀不同被重复统计的问题；自动合并既有重复机构和检察官记录，并统一总体报告及按院 Excel 分组。",
-  "pub_date": "2026-07-06T07:02:24Z",
+  "version": "0.2.10",
+  "notes": "新增起诉书与起诉意见书对照分析及对照报告；修复 PDF 版面换行导致复制率、覆盖率误为 0 的问题；总体报告和批次 Excel 增加各基层院 2025、2026 年平均错误数汇总。",
+  "pub_date": "2026-07-07T10:12:28Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazU5Rk41RG0xdTFGRDBZdzdTQmlWcUV2Y20ydDhaaWxGVmhGNzlNV1BVUlBXT3NnU25FVGk5eThlU2JQK01ER0Y0ekVXcU43eWdqWXNXM01jZXV4QmcwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzMzIxMzA2CWZpbGU65paH5Lmm6LSo5qOAXzAuMi45X3g2NC1zZXR1cC5leGUKb2tDL1d4OEhFL3hMcitMMG1aVk9VbHMzN1lDK20rNWZzdUdFOVIyMktKUEtOSWJyY0pUOER6RU1LNE9ib09kMnhZZW1HdnFLRWIya2JicUp1bnZuQWc9PQo=",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.9/document-quality-inspector_0.2.9_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNayt5eWZMK3hhRlVGbHhLcWpqaytvZlY1S1FpYnRvRFBKRnJGZWY0U094cTh6ZU9vREUvYkQwcHN0dEU2R3lhRFExRTlLTW9hK05VemxiZXZSUWo5NHdjPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzNDE5MTA4CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4xMF94NjQtc2V0dXAuZXhlCjc5OWZqNEZoY0w0OWs0bmkrbXBXbklVa2wxSXdWcVZQNU1keDhUYXNueEZYZXd1Sm5rRnZoMmEwU20wMWViVm9GaXZKYVl5dnY3MDFWTHl6b1RoUEF3PT0K",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.10/document-quality-inspector_0.2.10_x64-setup.exe.bin"
     }
   }
 }
