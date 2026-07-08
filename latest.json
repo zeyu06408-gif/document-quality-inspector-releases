@@ -1,11 +1,11 @@
 {
-  "version": "0.2.10",
-  "notes": "新增起诉书与起诉意见书对照分析及对照报告；修复 PDF 版面换行导致复制率、覆盖率误为 0 的问题；总体报告和批次 Excel 增加各基层院 2025、2026 年平均错误数汇总。",
-  "pub_date": "2026-07-07T10:12:28Z",
+  "version": "0.2.11",
+  "notes": "新增百炼 text-embedding-v4 向量模型配置；起诉意见书对照报告在生成时可计算语义事实相似度，并保留本地长段复制、复制段落和侦查口吻残留作为机械复制主判据；新增起诉意见书一键清除；修正文书质检误报口径和报告错误率排序。",
+  "pub_date": "2026-07-08T08:13:29Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNayt5eWZMK3hhRlVGbHhLcWpqaytvZlY1S1FpYnRvRFBKRnJGZWY0U094cTh6ZU9vREUvYkQwcHN0dEU2R3lhRFExRTlLTW9hK05VemxiZXZSUWo5NHdjPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzNDE5MTA4CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4xMF94NjQtc2V0dXAuZXhlCjc5OWZqNEZoY0w0OWs0bmkrbXBXbklVa2wxSXdWcVZQNU1keDhUYXNueEZYZXd1Sm5rRnZoMmEwU20wMWViVm9GaXZKYVl5dnY3MDFWTHl6b1RoUEF3PT0K",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.10/document-quality-inspector_0.2.10_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazJ6TGZWU1hueTNiRWNNVGIrUjcvMndGbkJ5UVB4ZXZmeFkwM052NzFTc1VCaXI3NU83RXhJZC9sa0dZRmttUXFBb3hyMDVWVm1GRWQwU1IxT3FjTndJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzNDk4MzczCWZpbGU65paH5Lmm6LSo5qOAXzAuMi4xMV94NjQtc2V0dXAuZXhlCmNnajVCMm45QmVhNk5Qdy91WkNDMW1ZeDdYSkorNEN2eS9QaUszdkcrdSs5a1NHcHlPNU1ka2NoWTByaFlmbXFTUkJFb084Sk8vaVl3WjhrcFhmVURnPT0K",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.11/document-quality-inspector_0.2.11_x64-setup.exe.bin"
     }
   }
 }
