@@ -1,11 +1,11 @@
 {
-  "version": "0.2.12",
-  "notes": "调整起诉意见书对照规则：查明事实段内连续50个有效正文字符相同即强提示机械复制，公共背景不再降权；报告和Excel改为事实段复制覆盖率/背景定位口径；新增可复用文件夹对照脚本，支持OCR、百炼语义相似度和Excel蓝色标注复制片段。",
-  "pub_date": "2026-07-08T09:32:34Z",
+  "version": "0.2.13",
+  "notes": "修复百炼向量模型在个别事实段输入异常时返回HTTP 400导致整批语义相似度失败的问题：向量输入先清洗控制字符、压缩空白并限长；语义相似度改为逐案计算，单案失败不再影响其他文书；同步修复文件夹对照脚本的向量输入清洗。",
+  "pub_date": "2026-07-08T10:28:52Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazZoTWZRejNVMkpnOU1qY1NTTGpNenhDek56VThQYzVSNDFSZlhMS3hFcFdldnVITjNpRmhvMXdpYXdtRy8vNVBXS1Ivbi9PYnQvTENjZXNMTDdDZ3dBPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzNTAzMTE4CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4xMl94NjQtc2V0dXAuZXhlClpEaW53eDlzcXhYQXNKMzdBWUxVaW1ON01vOVkxOTBnMVVNSWdaekU0clYwWXJlUmNBb0VKaS9ZeXY0ZmFGbzBFZURsMWo3aU9tZmJQUUpmWUo0SUNBPT0K",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.12/document-quality-inspector_0.2.12_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazIrR0JkWnFSUnBNaHVTaFl4dU90QnJLWURjcXlTZE5ETHNkVjg4WnRzKzVuS3Z6bVc1UzRDc3ovSVNncno5M0lEOTJIVEV5S09LM3FpNlhCNzdhaEE4PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzNTA2NDk0CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4xM194NjQtc2V0dXAuZXhlCkhrc3ZjTXFhSHowUDBYbjB6aFNwUHFtSlVkbFhJdVI2V09iR1V5TjRxMFBBUXpyWGVkMnU1MHdBSisxbkJxdEcxR0tjUWxwZWtSeFU0M3doc3oyVEFRPT0K",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.13/document-quality-inspector_0.2.13_x64-setup.exe.bin"
     }
   }
 }
