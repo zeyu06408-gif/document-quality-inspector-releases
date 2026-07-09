@@ -1,11 +1,11 @@
 {
-  "version": "0.2.13",
-  "notes": "修复百炼向量模型在个别事实段输入异常时返回HTTP 400导致整批语义相似度失败的问题：向量输入先清洗控制字符、压缩空白并限长；语义相似度改为逐案计算，单案失败不再影响其他文书；同步修复文件夹对照脚本的向量输入清洗。",
-  "pub_date": "2026-07-08T10:28:52Z",
+  "version": "0.2.14",
+  "notes": "修复大批量导入文书和起诉意见书时的卡死感：导入改为逐份进度和逐份提交，增加导入/OCR 全局单任务锁，避免重复批次叠加任务；修复起诉意见书拖拽误判到起诉书框；自动 OCR 仅处理本次新增待识别起诉意见书，避免历史待 OCR 数量叠加。",
+  "pub_date": "2026-07-09T02:14:41Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazIrR0JkWnFSUnBNaHVTaFl4dU90QnJLWURjcXlTZE5ETHNkVjg4WnRzKzVuS3Z6bVc1UzRDc3ovSVNncno5M0lEOTJIVEV5S09LM3FpNlhCNzdhaEE4PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzNTA2NDk0CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4xM194NjQtc2V0dXAuZXhlCkhrc3ZjTXFhSHowUDBYbjB6aFNwUHFtSlVkbFhJdVI2V09iR1V5TjRxMFBBUXpyWGVkMnU1MHdBSisxbkJxdEcxR0tjUWxwZWtSeFU0M3doc3oyVEFRPT0K",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.13/document-quality-inspector_0.2.13_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazRaaWZvcFdGeTZhUWJCRVU5OGhXMXBOem1nR1hBWG9jYVZtWEZiaDVDSE5GQU9DaFZqeC9nbjdSSjZ4Y3Q0MnU5eG5zYmMxbGxpQzhyaTlueERINVFRPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzNTYzMjI0CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4xNF94NjQtc2V0dXAuZXhlCmNmU014RDlBYzk0eFJQemhDVFkxcGNmeFJNNVozQ1gzTWtqR1pKallOWndMeXBxWHdPM010YzkyVmRFalppaHlyM1hwV002WERvV1J0eUNJb2NsUURRPT0K",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.14/document-quality-inspector_0.2.14_x64-setup.exe.bin"
     }
   }
 }
