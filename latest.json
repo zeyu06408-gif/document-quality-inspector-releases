@@ -1,11 +1,11 @@
 {
-  "version": "0.2.15",
-  "notes": "修复起诉书与起诉意见书查重报告误匹配：匹配改为保守策略，姓名不一致或候选不唯一时不强行配对；对照页新增起诉书、起诉意见书、已匹配、未匹配统计；匹配行支持移除误配起诉意见书；新增 app-events 排障日志，记录导入、OCR、匹配和报告生成关键错误，便于用户反馈问题定位。",
-  "pub_date": "2026-07-09T02:59:04Z",
+  "version": "0.2.16",
+  "notes": "按用户39条批注修正规范质检误报、重复和解析问题；内置刑法及刑事诉讼法结构化法规库，法条款数改为本地确定性校验；持久化起诉书规范分析与起诉意见书对照结果，供后续统一报告直接复用。",
+  "pub_date": "2026-07-10T04:18:40Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazFJdUM4SUY2ZXZDdXlMZnFYMFpUbVdVaGF1N1BDTU5ML0xUMnBJZG1IeFdpeTZGNUlZSTVpT3R2bXdQdkVTTWpINnJsK3dIUmhLZTJuZzI5b3BZR3dnPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzNTY1OTA5CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4xNV94NjQtc2V0dXAuZXhlCjRNQS83VzVUVWM3ZkF5ejhDZ0xUeStYLzVmcWNmNkp5TUU4OUg0dGRld3dDaHB4YklJa2NVcXZsVk52ZzNjU3NwYzExZlFsMlZ4ZjZxdXNBV2pzWERnPT0K",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.15/document-quality-inspector_0.2.15_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNa3hsQzRJN3BaaGRjMXAwd0dEeVZUcXZvQnJUK244YmZPSkFaSmE2bXVHbG1RUHN2NGRpc21MRm5DRW9zUU5UWERDWTZaMG5seUJhVjVDUHR6QVRaTlF3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzNjU3MDc5CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4xNl94NjQtc2V0dXAuZXhlClZudUZhNVFiZWNvK2t4eDQ2OHZRWC85cEpnTTVKYmRYS2JRdWlXYSt0dDh5Zmt3T1hOZlZvTWtyT2J0cVpHVTFuei9MSlR6b05kdGQ4QmxHOFFBM0FRPT0K",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.16/document-quality-inspector_0.2.16_x64-setup.exe.bin"
     }
   }
 }
