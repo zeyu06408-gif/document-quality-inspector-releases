@@ -1,11 +1,11 @@
 {
-  "version": "0.2.18",
-  "notes": "修复起诉书规则漏检、重复计数及法条款次误判；默认启用51条规则并分组分析，新增跨批次结果缓存；修复起诉意见书‘涉嫌’文件名和多人案件配对，完成DeepSeek与PaddleOCR真实样本回归。",
-  "pub_date": "2026-07-10T09:27:44Z",
+  "version": "0.2.19",
+  "notes": "修复共享法名引用中法条与款次错配及《刑法》第十八条第四款误报；合并AI与本地规则造成的侦查机关错名、曾用名格式重复项；放行强制措施时间中合理省略“于”及“次日”“同日”等表述；总体报告列明零问题文书并完整展示跨文书重复问题。",
+  "pub_date": "2026-07-10T14:53:40Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNa3c5SXp6VmFtcXpFQVZQVG5wbVVqeDFlNGJSaGsycDFGZUtRMHpDb3ZRRHM5Y1N3dTBUUkFvVUF4WktiazNmcFpLTXlWZWY0SU9jSnJSbGhZS2p6ZFFJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzNjc1NjE5CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4xOF94NjQtc2V0dXAuZXhlCk14Y0owSkQydGhnS0NzOENIQUV6Y242THgrNU50ZDJ2TExjZW9uL0g5aDdBYk93Q050VW4yTWdoMlJobTdWcFF3eHRaODBuM1ZmWk9ud1FRaHRHWUJ3PT0K",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.18/document-quality-inspector_0.2.18_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazA3eUIzeUVLQnE0d0o0djc0ZE1EK0VndFdnNGhjN3B6andqWE9vVFY1NnFVOHd3ZVo1b2N4YisrNlJSaEFTWmttbEpwdTlxMWlIMGVkdjdVSDFJWVFFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzNjk1MTc1CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4xOV94NjQtc2V0dXAuZXhlCmhwR0FwMmtvejZ4UjBBaEpVcVZlN2EwaHRiNkMreHc0eHQwbldxdDhXQWFxcjRTcUdTYmNLV01relpXeG5QZmZyV3YwZ05NNFNPa3E5OG94NkVmS0JBPT0K",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.19/document-quality-inspector_0.2.19_x64-setup.exe.bin"
     }
   }
 }
