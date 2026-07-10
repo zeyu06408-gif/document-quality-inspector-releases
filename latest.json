@@ -1,11 +1,11 @@
 {
-  "version": "0.2.20",
-  "notes": "修复主动投案在事实段与法律适用段被重复报错、取保候审期间再犯罪被误要求重复涉嫌罪名，以及多人同场被误判为共同犯罪的问题；收紧规则适用范围并刷新分析缓存。",
-  "pub_date": "2026-07-10T16:29:56Z",
+  "version": "0.2.21",
+  "notes": "新增起诉案件清单导出：起诉书导入完成后可选择目录，将每份起诉书按区、县、县级市分工作表导出 Excel，包含地区、人民检察院、员额检察官、起诉年份和案件名称；信息待确认时阻止遗漏导出。",
+  "pub_date": "2026-07-10T16:53:33Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazNKcElaNmhUZWVEbVlZVFU2S3hnVkQ4YzZ6ODZrNmJNSlpOYnAzazVNQktheVJhRHlKb20xNVRTem93QnhXZDNCZ0NVZHRuaFp1bDJOcDJHdGZUVlFzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzNzAwOTM5CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4yMF94NjQtc2V0dXAuZXhlCmhHSUZVTWhMd1pPNmxGTjlqYXhrR2NQTkNTY2pEZWNkQUl0OWRSZ1Nybjc0TVBMMHp2TFR0RFRrV2xKNFUralR3eUNVWVMvVTZwL1hOb3VNcXhKakR3PT0K",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.20/document-quality-inspector_0.2.20_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazNiMjVXMHVzSW9LZmQ0RzNscE9EZVNvWUlNS0xlT0V1bVhzWEFZN0gwT0paQzVhYk82MGMyN2RDTlVWbjdkOFpGTzgzQVlPUjBUTE1xR2xPV2xEWmc4PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzNzAyMzYyCWZpbGU65paH5Lmm6LSo5qOAXzAuMi4yMV94NjQtc2V0dXAuZXhlCjNtQ2ZubHRrWmZIN1VMS3UzTHFoVDJLdHNJV2l6WEhidURLVXZKampBL0JuVDc3Wi9LU3crdldJN093eXcwWGtKdXFjbm9odFIyRy9lRmFlVVFTdUNnPT0K",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.21/document-quality-inspector_0.2.21_x64-setup.exe.bin"
     }
   }
 }
