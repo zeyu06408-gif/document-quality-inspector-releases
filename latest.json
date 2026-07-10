@@ -1,11 +1,11 @@
 {
-  "version": "0.2.19",
-  "notes": "修复共享法名引用中法条与款次错配及《刑法》第十八条第四款误报；合并AI与本地规则造成的侦查机关错名、曾用名格式重复项；放行强制措施时间中合理省略“于”及“次日”“同日”等表述；总体报告列明零问题文书并完整展示跨文书重复问题。",
-  "pub_date": "2026-07-10T14:53:40Z",
+  "version": "0.2.20",
+  "notes": "修复主动投案在事实段与法律适用段被重复报错、取保候审期间再犯罪被误要求重复涉嫌罪名，以及多人同场被误判为共同犯罪的问题；收紧规则适用范围并刷新分析缓存。",
+  "pub_date": "2026-07-10T16:29:56Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazA3eUIzeUVLQnE0d0o0djc0ZE1EK0VndFdnNGhjN3B6andqWE9vVFY1NnFVOHd3ZVo1b2N4YisrNlJSaEFTWmttbEpwdTlxMWlIMGVkdjdVSDFJWVFFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzNjk1MTc1CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4xOV94NjQtc2V0dXAuZXhlCmhwR0FwMmtvejZ4UjBBaEpVcVZlN2EwaHRiNkMreHc0eHQwbldxdDhXQWFxcjRTcUdTYmNLV01relpXeG5QZmZyV3YwZ05NNFNPa3E5OG94NkVmS0JBPT0K",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.19/document-quality-inspector_0.2.19_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazNKcElaNmhUZWVEbVlZVFU2S3hnVkQ4YzZ6ODZrNmJNSlpOYnAzazVNQktheVJhRHlKb20xNVRTem93QnhXZDNCZ0NVZHRuaFp1bDJOcDJHdGZUVlFzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzNzAwOTM5CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4yMF94NjQtc2V0dXAuZXhlCmhHSUZVTWhMd1pPNmxGTjlqYXhrR2NQTkNTY2pEZWNkQUl0OWRSZ1Nybjc0TVBMMHp2TFR0RFRrV2xKNFUralR3eUNVWVMvVTZwL1hOb3VNcXhKakR3PT0K",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.20/document-quality-inspector_0.2.20_x64-setup.exe.bin"
     }
   }
 }
