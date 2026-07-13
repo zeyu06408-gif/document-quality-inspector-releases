@@ -1,11 +1,11 @@
 {
-  "version": "0.2.21",
-  "notes": "新增起诉案件清单导出：起诉书导入完成后可选择目录，将每份起诉书按区、县、县级市分工作表导出 Excel，包含地区、人民检察院、员额检察官、起诉年份和案件名称；信息待确认时阻止遗漏导出。",
-  "pub_date": "2026-07-10T17:06:30Z",
+  "version": "0.2.22",
+  "notes": "新增办案人员综合分析报告：结合人员画像、案件程序与现有质检结果生成固定统计和脱敏模型分析；空缺字段自动跳过，模型异常时自动降级。",
+  "pub_date": "2026-07-13T03:20:54Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazNiMjVXMHVzSW9LZmQ0RzNscE9EZVNvWUlNS0xlT0V1bVhzWEFZN0gwT0paQzVhYk82MGMyN2RDTlVWbjdkOFpGTzgzQVlPUjBUTE1xR2xPV2xEWmc4PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzNzAyMzYyCWZpbGU65paH5Lmm6LSo5qOAXzAuMi4yMV94NjQtc2V0dXAuZXhlCjNtQ2ZubHRrWmZIN1VMS3UzTHFoVDJLdHNJV2l6WEhidURLVXZKampBL0JuVDc3Wi9LU3crdldJN093eXcwWGtKdXFjbm9odFIyRy9lRmFlVVFTdUNnPT0K",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.21/document-quality-inspector_0.2.21_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazdlM2V5K0FUaEk1SlBDcXA3cEFJaEdFZDdhR2xJeFJ2VVcrNXdITk1iTHRvUmgxV0gyMjlmZ3NtaVkvWWVRbnJxaS96S1hpOTVabFc5bVVlR3kyYUEwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzOTEyODA2CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4yMl94NjQtc2V0dXAuZXhlCmpnNm1XZERyWWxENU9BV0F5VTJ1Uy9xQTBJeW84R0NmNzFnYXRVaVB6b1JzS1dhaUlJUW4vWVAxTXFzYzNtTG1sT3dXcGhBR1I5VTMzbGdvMXdFaUJ3PT0K",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.22/document-quality-inspector_0.2.22_x64-setup.exe.bin"
     }
   }
 }
