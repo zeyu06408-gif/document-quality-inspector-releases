@@ -1,11 +1,11 @@
 {
-  "version": "0.2.24",
-  "notes": "重构办案人员综合分析报告：完整使用办案量、时长、诉判不一、职务、刑检年限和程序数据形成具体交叉判断；增加人员风险倾向与共性问题分型；放宽模型分析裁量，移除置信度展示并修复过严校验导致的自动降级。",
-  "pub_date": "2026-07-13T04:46:01Z",
+  "version": "0.2.25",
+  "notes": "重构办案人员综合分析报告：模型可基于真实数据作更直接、更开放的主观判断并本地点名；新增起诉书与公安移送文书雷同率、平均错误数的全员交叉分析，重点列出雷同高且问题多、雷同高但问题少、雷同低但问题多人员；刑检年限改为按表头识别并兼容带年月文本。",
+  "pub_date": "2026-07-13T07:49:15Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazdSV3VzN1ZCdEMzYUpqR0VTdkpETzdYMDVXd2I4R0hUbjdETnMwY1k3SS8vWHlVM0RLZGxDYmswNTQ5bkpEZWdnOWpGNUhNQys2dCsxVFdieDR4T3dzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzOTE3OTMwCWZpbGU65paH5Lmm6LSo5qOAXzAuMi4yNF94NjQtc2V0dXAuZXhlCmFHeU8rcjZYMkpFZVJhNWFLK0xLL3dyaFlRNjNTUS9iN0tmQWYzdURLNGQyTkFVNWc1R2NkN3F6VzYrVEpjT1BSaG0wN0hubFR2Y3BXbEp4eEtEcERRPT0K",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.24/document-quality-inspector_0.2.24_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazQzalJmTDlyMEVPZ2lyTnZySzJsalR0U1g3UU56SEN1SVphRTRnQ00yc2lVSW5XT1drWFBZbDBVMm04emsySTBCZG9IbkF0Q2g4L2lpTTdIcERuZ3dJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzOTI4OTE5CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4yNV94NjQtc2V0dXAuZXhlCjNjNDFTb3pLaXZla1U0YmZicUhPaDJ4VkFPcnVJc3ArekZKUisvc1VLTzRQNUVrazliM0NURXErNllTYkRZQnlrQW50TnRpSW5RUlg5V3NlUEd0VkJRPT0K",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.25/document-quality-inspector_0.2.25_x64-setup.exe.bin"
     }
   }
 }
