@@ -1,11 +1,11 @@
 {
-  "version": "0.2.26",
-  "notes": "新增综合分析报告开放裁量模式：模型可跳出固定提纲，自行选择分析主线、更多点名人员、划分问题梯队并形成独立综合研判；参考 Hermes humanizer-zh 写作原则，减少套话、机械排比和同构段落，同时继续只使用脱敏真实证据并在本地还原姓名。",
-  "pub_date": "2026-07-13T08:55:33Z",
+  "version": "0.2.27",
+  "notes": "修复办案人员综合报告遗漏公安移送文书雷同数据：合并连续文字复制、事实段覆盖率和已持久化语义相似度，新增起诉书总数、已匹配、未匹配及语义已计算数量，未匹配不再按零雷同处理；更新检查改用低缓存源优先并发送禁止缓存请求，页面明确显示当前版本。",
+  "pub_date": "2026-07-13T09:21:34Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNa3o0TjgvUXMxSGZlOWt4bVc2azhJMVV5WDhEVXdCWDNEbjRtWTU5R0JqUVNkWW5HeEhubmNSQng4OW1jaFhpNUp0RzFneWlNeHVCb0x2ZG94a2VNeGc0PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzOTMyODkyCWZpbGU65paH5Lmm6LSo5qOAXzAuMi4yNl94NjQtc2V0dXAuZXhlCm5TejN4NVZPUU9mU3UxaTJ1QUhnbUg5WnFzcnFJeG1PZjRpRmJBZDdIUnpQTXNWSVBEOG5ubW1qQ1ZaU0RDcmhxejJIaEUwWE1VNnBBUU56Y3BBd0NBPT0K",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.26/document-quality-inspector_0.2.26_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNa3hXT3pHZVZ3T2kvcWNWNU0zNERxWEMycjFXMU4velcrdXRuVTk0L1lvMDBzK3loSnNPQVYrL2VmY09tWExrMlVtZEp5cmErRFJFMDRnQWNLSGNEUkEwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzOTM0NDU0CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4yN194NjQtc2V0dXAuZXhlCnM5OFMrbndId1FXTXFJd0o3aS9hQVNBT0JTL0tPTm5WVkJudERNNnZKcGJJRFhiWGVsZWxiRFVwaUZrSjgyZ1JSeWh4eG9vVy8rd3AwZC90Y013UURnPT0K",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.27/document-quality-inspector_0.2.27_x64-setup.exe.bin"
     }
   }
 }
