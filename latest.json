@@ -1,11 +1,11 @@
 {
-  "version": "0.2.22",
-  "notes": "新增办案人员综合分析报告：结合人员画像、案件程序与现有质检结果生成固定统计和脱敏模型分析；空缺字段自动跳过，模型异常时自动降级。",
-  "pub_date": "2026-07-13T03:20:54Z",
+  "version": "0.2.23",
+  "notes": "修复综合分析报告只能精确匹配固定工作表名称的问题；现支持按近似名称和表头结构自动识别人员信息表、案件程序表，并提供更明确的缺表提示。",
+  "pub_date": "2026-07-13T03:48:15Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazdlM2V5K0FUaEk1SlBDcXA3cEFJaEdFZDdhR2xJeFJ2VVcrNXdITk1iTHRvUmgxV0gyMjlmZ3NtaVkvWWVRbnJxaS96S1hpOTVabFc5bVVlR3kyYUEwPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzOTEyODA2CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4yMl94NjQtc2V0dXAuZXhlCmpnNm1XZERyWWxENU9BV0F5VTJ1Uy9xQTBJeW84R0NmNzFnYXRVaVB6b1JzS1dhaUlJUW4vWVAxTXFzYzNtTG1sT3dXcGhBR1I5VTMzbGdvMXdFaUJ3PT0K",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.22/document-quality-inspector_0.2.22_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazEvdHExbktiM0pqbFZhT1A0VU03akxJalNrNWJicTVYWStRS3dqT0lnOXcrMEg4QjlJVXVYeFYyV3ZEcWhVVlc0amoxck9QSWt1S3B0Q1loNjk3OFFFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzgzOTE0NDQ1CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4yM194NjQtc2V0dXAuZXhlClNmTGZCK0Y3cnpFYUFuSzBVSUdCbjNtR1RqbjJDUlAzbkhaY1pvT3ZDd0pERXhXZUEwZ2FDWElWbnVtWG9sMXRpYmtzSlpZRXBFSjlMbWh4Wk9vd0NBPT0K",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.23/document-quality-inspector_0.2.23_x64-setup.exe.bin"
     }
   }
 }
