@@ -1,11 +1,11 @@
 {
-  "version": "0.2.28",
-  "notes": "批量质检升级为最多四份文书并发分析，新增四路实时工作位、排队数量、规则组进度和安全停止状态展示；完善并发任务的结果写入、断点保存与临时网络错误重试。",
-  "pub_date": "2026-08-07T08:04:40Z",
+  "version": "0.2.29",
+  "notes": "修补文书规则分析输出超限恢复：达到8192输出上限后自动以16384重试，仍超限时按完整规则有限拆组；所有子组成功后才保存结果，避免不完整分析被当作成功。更新分析缓存版本，重新分析时不复用旧管线结果。代码与本地自动检查已通过，用户原失败样本待回放验证。",
+  "pub_date": "2026-09-07T02:52:47Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazAralJnYlZSb3owRHhVc1FtQ2JBRFViOVZzRmtxNmNORFhRVEQyUkMxcXlqQ1o0K0hmUlV4bDRNU0ZkUkcvNkNsUDlZRDNLUk9saTA2NUNNZXVXR3dzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg2MDg5NzkzCWZpbGU65paH5Lmm6LSo5qOAXzAuMi4yOF94NjQtc2V0dXAuZXhlCmluUmcySlV3T3hZdG12aG56SDVYZk9iWnlSdnh2L2lyeVliaGZFL1loZ0d4T3hyaUR0U1Z5S3padkROSXhjQk5WQ0MrTlN2OC8wTGJqRWJrdmFQS0RnPT0K",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.28/document-quality-inspector_0.2.28_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazhDbGRzazY5bEFWV1JLQlh6L1R3NmZYWG03MjU4UkljRW5abGRGa05ra2VQZVVhQzNaOU9xMStaQ3hNL1JZOGUzRGVwUldIV0dTYnE1Ukx2U0RNMlFvPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg4NzQ5NTI3CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4yOV94NjQtc2V0dXAuZXhlCmU3blpwSTBFTk5yUUJMOGh3VUUrSEVIRXFzZ3FoYkRRZDU3S3F2dnV0dWtVcU9zc2lqTlVGaEg3WTY0R1V1RFFJc1E3SkxDMVhNWk5DWHB6dW5aaUNRPT0K",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.29/document-quality-inspector_0.2.29_x64-setup.exe.bin"
     }
   }
 }
