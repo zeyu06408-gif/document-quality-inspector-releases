@@ -1,11 +1,11 @@
 {
-  "version": "0.2.29",
-  "notes": "修补文书规则分析输出超限恢复：达到8192输出上限后自动以16384重试，仍超限时按完整规则有限拆组；所有子组成功后才保存结果，避免不完整分析被当作成功。更新分析缓存版本，重新分析时不复用旧管线结果。代码与本地自动检查已通过，用户原失败样本待回放验证。",
-  "pub_date": "2026-09-07T02:52:47Z",
+  "version": "0.2.30",
+  "notes": "新增审查报告错别字专项检查及简易、速裁表格专用规则；表格版与普通审查报告分别评价，历年统计和综合分析按组隔离；修复长文检查内容遗漏、同句不同错字被合并及旧导出报告清理问题。首次升级可能需要重新分析受规则变更影响的审查报告。",
+  "pub_date": "2026-09-10T15:09:05Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazhDbGRzazY5bEFWV1JLQlh6L1R3NmZYWG03MjU4UkljRW5abGRGa05ra2VQZVVhQzNaOU9xMStaQ3hNL1JZOGUzRGVwUldIV0dTYnE1Ukx2U0RNMlFvPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg4NzQ5NTI3CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4yOV94NjQtc2V0dXAuZXhlCmU3blpwSTBFTk5yUUJMOGh3VUUrSEVIRXFzZ3FoYkRRZDU3S3F2dnV0dWtVcU9zc2lqTlVGaEg3WTY0R1V1RFFJc1E3SkxDMVhNWk5DWHB6dW5aaUNRPT0K",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.29/document-quality-inspector_0.2.29_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNa3g3T0hLTTNsbzhRRXpCdkduQlFabjkxL0IzN2hGd1dZY0ZINHdjRFFXTFFxZ01yb0tJNExOZkpFbzlpYUlySzNkOEpac2toVU0yK3FJMjFTejcrblFFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg5MDUyODk4CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4zMF94NjQtc2V0dXAuZXhlCjAwTkFOVlpTWEtvc2hmczRXN0VLS2E1T3pwWTkweG5Tb001czAwSk1uTzV0YThmR3FrQmFkL2pGR2VRQ20rajJSTFJmNzZMUXNPZ2pNa3dvWWxXWkR3PT0K",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.30/document-quality-inspector_0.2.30_x64-setup.exe.bin"
     }
   }
 }
