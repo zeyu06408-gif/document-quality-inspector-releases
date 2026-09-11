@@ -1,11 +1,11 @@
 {
-  "version": "0.2.30",
-  "notes": "新增审查报告错别字专项检查及简易、速裁表格专用规则；表格版与普通审查报告分别评价，历年统计和综合分析按组隔离；修复长文检查内容遗漏、同句不同错字被合并及旧导出报告清理问题。首次升级可能需要重新分析受规则变更影响的审查报告。",
-  "pub_date": "2026-09-10T15:09:05Z",
+  "version": "0.2.31",
+  "notes": "修复审查报告错别字专项输出超限导致分析失败的问题；专项校对关闭DeepSeek V4思考模式，输出截断时自动扩容重试并保留分片恢复。失败文书请升级后重新分析。",
+  "pub_date": "2026-09-11T03:27:54Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNa3g3T0hLTTNsbzhRRXpCdkduQlFabjkxL0IzN2hGd1dZY0ZINHdjRFFXTFFxZ01yb0tJNExOZkpFbzlpYUlySzNkOEpac2toVU0yK3FJMjFTejcrblFFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg5MDUyODk4CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4zMF94NjQtc2V0dXAuZXhlCjAwTkFOVlpTWEtvc2hmczRXN0VLS2E1T3pwWTkweG5Tb001czAwSk1uTzV0YThmR3FrQmFkL2pGR2VRQ20rajJSTFJmNzZMUXNPZ2pNa3dvWWxXWkR3PT0K",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.30/document-quality-inspector_0.2.30_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazd0OHV1U1RiTStyRjd2Nk5VWkxHQkxsakVuS0ZoQkt2L3VYbTZnM3FZdFdhZmF0cVpBVWF2Rk5PMzFBd1NVNlpYckxhb2tJYkhvYmxYSnc5UDNwUkE0PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg5MDk3MjI4CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4zMV94NjQtc2V0dXAuZXhlCmpFcHRuOStwQStSek1acTJlV2JURHkwV2V3eGdFVHJzTHY1OVVYcVZIcmpXdHBEa3FQY2NzN3pyREdtS3Nlcm9lODQxTjlzK2w0dmsvUmFvTVllakNBPT0K",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.31/document-quality-inspector_0.2.31_x64-setup.exe.bin"
     }
   }
 }
