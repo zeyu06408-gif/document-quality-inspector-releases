@@ -1,11 +1,11 @@
 {
-  "version": "0.2.31",
-  "notes": "修复审查报告错别字专项输出超限导致分析失败的问题；专项校对关闭DeepSeek V4思考模式，输出截断时自动扩容重试并保留分片恢复。失败文书请升级后重新分析。",
-  "pub_date": "2026-09-11T03:27:54Z",
+  "version": "0.2.32",
+  "notes": "修复审查报告分析过长、输出截断和失败后重复处理问题；完善未脱敏文书身份识别、表格报告独立评价及错字和业务规则边界；修正非羁押、量刑等价表述误报，保留成功规则组并明确未完成检查。建议对旧批次重新分析以应用新规则。",
+  "pub_date": "2026-09-15T04:15:23Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazd0OHV1U1RiTStyRjd2Nk5VWkxHQkxsakVuS0ZoQkt2L3VYbTZnM3FZdFdhZmF0cVpBVWF2Rk5PMzFBd1NVNlpYckxhb2tJYkhvYmxYSnc5UDNwUkE0PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg5MDk3MjI4CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4zMV94NjQtc2V0dXAuZXhlCmpFcHRuOStwQStSek1acTJlV2JURHkwV2V3eGdFVHJzTHY1OVVYcVZIcmpXdHBEa3FQY2NzN3pyREdtS3Nlcm9lODQxTjlzK2w0dmsvUmFvTVllakNBPT0K",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.31/document-quality-inspector_0.2.31_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazdBOVoyOUt0T2ZOK0dJK0hnRmxQRmQyUHlqaDlSQ2hiRkg5NUZuM2JaTDk1T0IxQllPaDlzVkRoMytHUVVHMWdobnI3c3I1UWIvbEREOVUyL1dHSkFjPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg5NDQ1NjY1CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4zMl94NjQtc2V0dXAuZXhlCjNSSzd6d0xTdkpYZDJzVWRtTm5tVHlTbjlXL2h6aWNQMDdjZXRVMFdGUTltYlVIb1RqL0JXUWZ4NysyN3hWYTZiMHJtWkZyeG1jYko0OTRrVGFUZUF3PT0K",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.32/document-quality-inspector_0.2.32_x64-setup.exe.bin"
     }
   }
 }
