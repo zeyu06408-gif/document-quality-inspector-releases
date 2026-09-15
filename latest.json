@@ -1,11 +1,11 @@
 {
-  "version": "0.2.32",
-  "notes": "修复审查报告分析过长、输出截断和失败后重复处理问题；完善未脱敏文书身份识别、表格报告独立评价及错字和业务规则边界；修正非羁押、量刑等价表述误报，保留成功规则组并明确未完成检查。建议对旧批次重新分析以应用新规则。",
-  "pub_date": "2026-09-15T04:15:23Z",
+  "version": "0.2.33",
+  "notes": "修复部分审查报告因证据章节标题写法不同，被误判为证据章节边界无法可靠定位并中止分析的问题。更新后请重新分析此前失败的文书。",
+  "pub_date": "2026-09-15T07:35:08Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazdBOVoyOUt0T2ZOK0dJK0hnRmxQRmQyUHlqaDlSQ2hiRkg5NUZuM2JaTDk1T0IxQllPaDlzVkRoMytHUVVHMWdobnI3c3I1UWIvbEREOVUyL1dHSkFjPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg5NDQ1NjY1CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4zMl94NjQtc2V0dXAuZXhlCjNSSzd6d0xTdkpYZDJzVWRtTm5tVHlTbjlXL2h6aWNQMDdjZXRVMFdGUTltYlVIb1RqL0JXUWZ4NysyN3hWYTZiMHJtWkZyeG1jYko0OTRrVGFUZUF3PT0K",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.32/document-quality-inspector_0.2.32_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazhPRnU2N0lGUm4xYnBkWlRvYy9EK2Z6bHJTL3NSYnRlQ0JReVN3YmhudlRRdVdaTSt5RnJiVElCUHYxbk43VkpLNUdBbEVBcEJucWVuWFNUYU1iYWdFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg5NDU3NjU5CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4zM194NjQtc2V0dXAuZXhlCll5SUFlVTdWZGt2MHRDN2pDWWhoUkE1R281U25DZjc2U3VORjVzelJGVGtHWkFWeTVhYTZKZEVtbDNtWTUxVEE3anZkYW8rNzNRNy9Ib2pibnZNSERBPT0K",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.33/document-quality-inspector_0.2.33_x64-setup.exe.bin"
     }
   }
 }
