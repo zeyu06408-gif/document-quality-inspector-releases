@@ -1,11 +1,11 @@
 {
-  "version": "0.2.33",
-  "notes": "修复部分审查报告因证据章节标题写法不同，被误判为证据章节边界无法可靠定位并中止分析的问题。更新后请重新分析此前失败的文书。",
-  "pub_date": "2026-09-15T07:35:08Z",
+  "version": "0.2.34",
+  "notes": "更新审查报告评价口径：明确已签具结书不再要求日期和见证律师；简易／速裁表格取消羁押审查项。修复同一文字错误重复计数、审查逮捕章节边界遗漏，以及纯标点过滤误删混合改字问题。方言、专名及论证充分性仍需人工复核。",
+  "pub_date": "2026-09-16T09:32:46Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazhPRnU2N0lGUm4xYnBkWlRvYy9EK2Z6bHJTL3NSYnRlQ0JReVN3YmhudlRRdVdaTSt5RnJiVElCUHYxbk43VkpLNUdBbEVBcEJucWVuWFNUYU1iYWdFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg5NDU3NjU5CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4zM194NjQtc2V0dXAuZXhlCll5SUFlVTdWZGt2MHRDN2pDWWhoUkE1R281U25DZjc2U3VORjVzelJGVGtHWkFWeTVhYTZKZEVtbDNtWTUxVEE3anZkYW8rNzNRNy9Ib2pibnZNSERBPT0K",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.33/document-quality-inspector_0.2.33_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazlqZUhiVElmMGo4SnpKSTNaYnBJUURRVGNIcjBYSnNyeHlhelg4ZDZiWFdCdHpZTWFDRUNjMXRKMEJhd04vd1N2ZHNtTDB2M0NxaVJZVk1xV2kxc0FJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg5NTUxMTE5CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4zNF94NjQtc2V0dXAuZXhlCnp4RzV2SXZZTEJQYzRSU3p5M3JmNVltb1ZGY3I5a2JiS3VtQWx6VTRCZHVtODVlQXFSbDJhMXozcWpxdW9ZempUbk1qZHJwV1BXYTYzL1Q4MHVYdEN3PT0K",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.34/document-quality-inspector_0.2.34_x64-setup.exe.bin"
     }
   }
 }
