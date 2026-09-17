@@ -1,11 +1,11 @@
 {
-  "version": "0.2.34",
-  "notes": "更新审查报告评价口径：明确已签具结书不再要求日期和见证律师；简易／速裁表格取消羁押审查项。修复同一文字错误重复计数、审查逮捕章节边界遗漏，以及纯标点过滤误删混合改字问题。方言、专名及论证充分性仍需人工复核。",
-  "pub_date": "2026-09-16T09:32:46Z",
+  "version": "0.2.35",
+  "notes": "修复多人、不同罪名的审查报告因标题含逗号被误识别为起诉书的问题。已导入且类型错误的文书，请手动改为审查报告，核对适用规范后保存并重新分析。",
+  "pub_date": "2026-09-17T01:49:03Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazlqZUhiVElmMGo4SnpKSTNaYnBJUURRVGNIcjBYSnNyeHlhelg4ZDZiWFdCdHpZTWFDRUNjMXRKMEJhd04vd1N2ZHNtTDB2M0NxaVJZVk1xV2kxc0FJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg5NTUxMTE5CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4zNF94NjQtc2V0dXAuZXhlCnp4RzV2SXZZTEJQYzRSU3p5M3JmNVltb1ZGY3I5a2JiS3VtQWx6VTRCZHVtODVlQXFSbDJhMXozcWpxdW9ZempUbk1qZHJwV1BXYTYzL1Q4MHVYdEN3PT0K",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.34/document-quality-inspector_0.2.34_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazk0cnI5cklkS2wwcGw5aitoSXJnVmZGakhVWHlyaS85VUJIVTA4ZDdvTTFrRWx2QnVnNUdmQzhnc3h1VHBpZC8zZE9rM1hFM1FUWjdQMXNSVXdaeHc4PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg5NjA5Njk4CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4zNV94NjQtc2V0dXAuZXhlCms2T01qUFJjU09abklIRkVzMzVaOXREVW80VUlTR29nTmRSbHNIRU1tVm8zdGIwYUJiWWE1Zk9mVGtqNFRzRUo4THRzaGQ5OXcybEJBd2Z4UHoyekRBPT0K",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.35/document-quality-inspector_0.2.35_x64-setup.exe.bin"
     }
   }
 }
