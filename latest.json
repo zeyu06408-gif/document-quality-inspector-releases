@@ -1,11 +1,11 @@
 {
-  "version": "0.2.35",
-  "notes": "修复多人、不同罪名的审查报告因标题含逗号被误识别为起诉书的问题。已导入且类型错误的文书，请手动改为审查报告，核对适用规范后保存并重新分析。",
-  "pub_date": "2026-09-17T01:49:03Z",
+  "version": "0.2.36",
+  "notes": "修复审查报告年度误识别、部分证据标题定位失败及盐都院名重复统计；新增每篇与每万字独立排名、普通与表格合并汇总、起诉书与审查报告联合对照、季度统计及重复分析差异记录。旧库错误年度需核对更正。部分模型输出失败仍待复现；结果留存不保证模型每次返回相同结果。",
+  "pub_date": "2026-09-18T06:51:27Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazk0cnI5cklkS2wwcGw5aitoSXJnVmZGakhVWHlyaS85VUJIVTA4ZDdvTTFrRWx2QnVnNUdmQzhnc3h1VHBpZC8zZE9rM1hFM1FUWjdQMXNSVXdaeHc4PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg5NjA5Njk4CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4zNV94NjQtc2V0dXAuZXhlCms2T01qUFJjU09abklIRkVzMzVaOXREVW80VUlTR29nTmRSbHNIRU1tVm8zdGIwYUJiWWE1Zk9mVGtqNFRzRUo4THRzaGQ5OXcybEJBd2Z4UHoyekRBPT0K",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.35/document-quality-inspector_0.2.35_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazlORmMrdm1zQWRxeFBuZy9PNmM5VW5YaTFRZ3Y2YjE1akNWR2NmNHFaaEJGMVc4aEx0aGVVYnR0Yyt5eFozcFB1TDBtb3VoUHFVc0NqUUpmWmQzZGd3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg5NzE0MjM2CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4zNl94NjQtc2V0dXAuZXhlCiswY1R1bkJ3QUFFZjdXWHN0Z1FBNW1iMUoybklNQXRocDNmNndURmVNSlRFTEQyS3pybmg2RlZiM2NEOXV5OU0vMzZmd3gwd3l4UU13a3pQekFSNkNnPT0K",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.36/document-quality-inspector_0.2.36_x64-setup.exe.bin"
     }
   }
 }
