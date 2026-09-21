@@ -1,11 +1,11 @@
 {
-  "version": "0.2.38",
-  "notes": "新增可选批次入库的独立人员档案，支持按人员与年度查询、来源追溯及撤销；改进桌面界面，加入日期、星期与实时时钟，统一下拉框样式；返回质检批次时优先进入正在分析的批次。",
-  "pub_date": "2026-09-20T02:59:16Z",
+  "version": "0.2.39",
+  "notes": "扩展普通及简易、速裁审查报告评查依据，新增人工复核、证据定位和修改记录。修复分析失败恢复、长文请求预算、跨规则重复计错及量刑测算要求扩大问题。保留既定七何、具结和表格适用例外。升级后适用内置规范的旧分析需重新运行，已导出的文件保留；人工复核修改后请重新生成报告，已入人员档案的批次需重新入库。",
+  "pub_date": "2026-09-21T12:04:29Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNa3h1YWFkOU1qOVlvb3FFd0RlWE5wdktvQWpXY0lGaEFaRHhKelJoL2tWdFhLWW5xbk9VSmtKeUFUSnVzdDdBRHpxL29KT29OWEU2YnpMTW95bTVIbUFvPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg5ODczMTA1CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4zOF94NjQtc2V0dXAuZXhlCmd2RGV5cTFxSGtGajJ3blZZR09NTXU2N1BBSVJ4OC9QSTBSQ21DVnpxYkpzMU9EVCtVZXJxcXhJcmQ5Ym1yaElRTTZGcnFMRXR4cmhKS2dFdUZRd0N3PT0K",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.38/document-quality-inspector_0.2.38_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNa3h2RHQvVTdJc2RSRktGNis5SzNFRzFmd0U0YTJiUERmR1V2alo5dGViZEM2WExOZGUydzV0M1pXUDN4UkJucDkyYmxKSW92aG14YVNuaWp4U0xNK1FFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg5OTkyMjE3CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4zOV94NjQtc2V0dXAuZXhlCmhLdGxvSzFxbXpqK1JPZXdzakFWTGR5SmFQTmwwdkhHQVRZYnRqbEtBRmR5MUJMYk5OZnB3dmU3ckY2VzdYUCtyTTJLaEh6QmNEMWxJZDZDRjBXVERnPT0K",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.39/document-quality-inspector_0.2.39_x64-setup.exe.bin"
     }
   }
 }
