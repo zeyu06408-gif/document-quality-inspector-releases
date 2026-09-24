@@ -1,11 +1,11 @@
 {
-  "version": "0.2.39",
-  "notes": "扩展普通及简易、速裁审查报告评查依据，新增人工复核、证据定位和修改记录。修复分析失败恢复、长文请求预算、跨规则重复计错及量刑测算要求扩大问题。保留既定七何、具结和表格适用例外。升级后适用内置规范的旧分析需重新运行，已导出的文件保留；人工复核修改后请重新生成报告，已入人员档案的批次需重新入库。",
-  "pub_date": "2026-09-21T12:04:29Z",
+  "version": "0.2.40",
+  "notes": "新增检察官个人六维图，对比本人得分与同口径人员平均得分；新增未完成模板本地识别，计入错误并醒目标记，未执行的检查不计满分。旧文书需重新分析，已入库档案需更新。",
+  "pub_date": "2026-09-24T11:11:24Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNa3h2RHQvVTdJc2RSRktGNis5SzNFRzFmd0U0YTJiUERmR1V2alo5dGViZEM2WExOZGUydzV0M1pXUDN4UkJucDkyYmxKSW92aG14YVNuaWp4U0xNK1FFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzg5OTkyMjE3CWZpbGU65paH5Lmm6LSo5qOAXzAuMi4zOV94NjQtc2V0dXAuZXhlCmhLdGxvSzFxbXpqK1JPZXdzakFWTGR5SmFQTmwwdkhHQVRZYnRqbEtBRmR5MUJMYk5OZnB3dmU3ckY2VzdYUCtyTTJLaEh6QmNEMWxJZDZDRjBXVERnPT0K",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.39/document-quality-inspector_0.2.39_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNays5bDlHemVVd3RsMDRXRHhMVUNsQngzYjFZdVJQc0IwbXdFUGV1R2hUVXFLdEFHUVFTTnlNNFZNd3FwNnRCS25xZnZIOThzQ2tEZGN4STZBVk9xSVF3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkwMjQ4MjMzCWZpbGU65paH5Lmm6LSo5qOAXzAuMi40MF94NjQtc2V0dXAuZXhlCndjT3hPbXJoUGpXcCtKMHp3TElMcXZIVC9TaDhEbzQxbDMxU25ZdFpZK1FIU2VrSzRNRkFyUG1mV0FBRG5qMFU4Vlo4YlB0RE90VzM4d2Jldkt2UEJ3PT0K",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.40/document-quality-inspector_0.2.40_x64-setup.exe.bin"
     }
   }
 }
