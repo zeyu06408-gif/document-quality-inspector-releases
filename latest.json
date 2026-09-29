@@ -1,11 +1,11 @@
 {
-  "version": "0.2.40",
-  "notes": "新增检察官个人六维图，对比本人得分与同口径人员平均得分；新增未完成模板本地识别，计入错误并醒目标记，未执行的检查不计满分。旧文书需重新分析，已入库档案需更新。",
-  "pub_date": "2026-09-24T11:11:24Z",
+  "version": "0.2.41",
+  "notes": "优化空原文摘录的定位重试，仍保留全文复核；改善模板识别及人工纠正；新增自动问题认可、误报、待核实和撤销及处置历史；雷达支持评价口径筛选、缺样本说明；档案提示来源变化，模板数量单列；改进本地检查与安全更新。待核实问题须先完成处置再生成报告或更新档案。本地测试与构建通过；反馈文书的真实云端复测及原批次验收尚未完成。",
+  "pub_date": "2026-09-29T03:46:53Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNays5bDlHemVVd3RsMDRXRHhMVUNsQngzYjFZdVJQc0IwbXdFUGV1R2hUVXFLdEFHUVFTTnlNNFZNd3FwNnRCS25xZnZIOThzQ2tEZGN4STZBVk9xSVF3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkwMjQ4MjMzCWZpbGU65paH5Lmm6LSo5qOAXzAuMi40MF94NjQtc2V0dXAuZXhlCndjT3hPbXJoUGpXcCtKMHp3TElMcXZIVC9TaDhEbzQxbDMxU25ZdFpZK1FIU2VrSzRNRkFyUG1mV0FBRG5qMFU4Vlo4YlB0RE90VzM4d2Jldkt2UEJ3PT0K",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.40/document-quality-inspector_0.2.40_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazJmOTBhRkJnWUY0M09sVDg2Qjl5N0dRYlpGanBKS0w5cHMyL1dIVG0wTnFlclo3V1hzR3l0S0NDT3BaUEl0VlVUeWJwLzc2VGhiT3ZWanNjSWJ1aVFjPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkwNjUzNTUwCWZpbGU65paH5Lmm6LSo5qOAXzAuMi40MV94NjQtc2V0dXAuZXhlClFKM1JiS0VkemZ6ZlZDQnlBUzFXdVV5MVZhcXBhWFAzRTRRcWJMOEo5VVYwSlB0UVFLeDhoVDhwUXYzdG16YWZvR1VBaFhtMEdMS1JCdkFWdGREVEFRPT0K",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.41/document-quality-inspector_0.2.41_x64-setup.exe.bin"
     }
   }
 }
