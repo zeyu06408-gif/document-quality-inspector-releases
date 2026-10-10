@@ -1,11 +1,11 @@
 {
-  "version": "0.2.42",
-  "notes": "新增季度质量对照：手动给批次指定季度，对比两期整体质量和检察官变化，导出 Word 与 Excel 对照报告。人员档案支持部分成功文书先入库，并列明排除原因。未完成模板可查看具体文书、人员及判定依据，Word 和 Excel 报告同步列出模板明细。失败、待核实等文书不按零问题计入；不同规则或样本不足时不计算质量差值。",
-  "pub_date": "2026-10-10T07:39:59Z",
+  "version": "0.2.43",
+  "notes": "# 0.2.43 更新说明\n\n- 修复雷达图因个别历史分组不足三份而隐藏整个维度的问题。有有效检查数据即出分，小样本保留提示。\n- 个人得分按文书类型等权汇总；平均线对所选范围内有数据的人员按人平均，并独立于当前人员计算。没有检查记录的维度继续显示缺失。\n- 各维度明细展示文书类型的样本量、得分和权重，保留类型、历史口径及单位筛选。\n- 雷达图右上方增加圆形问号帮助入口，点击可查看样本来源、计算方法和示例。\n\n本次调整已入库数据的展示与评分，无数据库迁移；已有完整检查记录的文书无需重新分析。不同人员的类型和检查口径可能不同，综合得分属于描述性汇总。若需回退可恢复前一版本前端汇总逻辑，原分析快照不变。\n\n验证：11 项雷达图回归、TypeScript 检查与 Vite 生产构建通过；发布前由 PR CI 执行 Rust 格式、Clippy、测试及发布工具回归。未使用真实用户数据库或执行云端文书复测。\n",
+  "pub_date": "2026-10-10T09:12:19Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazdzNmIzWDhJUDA1RHpuQ3E5NEhFdWs4Q2xLNTFjWVplQmprK2FCckJGMXg5Z2xNSzFWdGs5TWNlTVhUbUV1S0I2cExWWlIyZ20zUWdNbUhSSEpHdlFvPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkxNjE3OTYwCWZpbGU65paH5Lmm6LSo5qOAXzAuMi40Ml94NjQtc2V0dXAuZXhlCnZYN3IwMkxHL2RZbkVRSjFja2F5N2F1NFNwU3ZibFNhMW1uRFNMRmcvaU5oa0tjWWIzZHhOOTZKb1ZjUkNQVnhPbzJyVE1Fci9raUpENGpuWEVBWUJBPT0K",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.42/document-quality-inspector_0.2.42_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNa3lNd2NTNmxEUHlBZThYR2E0NkVlVUdJWE5YWGZsQ0QvcXNUZnpDa200NUdVd2JPU2h1aWpXNlBuU29DZE9ic20yU0ZYT29NandDSGkzMkxWaEdMZkFZPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkxNjIzNDk0CWZpbGU65paH5Lmm6LSo5qOAXzAuMi40M194NjQtc2V0dXAuZXhlClpqbU5ZN09YcW85UDlUR0U0bXN5MTNpaTZiS0F0c3VyMGpaZ3ZvSVJYSEFzMWlkRERiM2NEQ1JMN0xMcTZxa0hWZ2U5VFc4WEM3eDhVWGYrWk9oY0J3PT0K",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.43/document-quality-inspector_0.2.43_x64-setup.exe.bin"
     }
   }
 }
