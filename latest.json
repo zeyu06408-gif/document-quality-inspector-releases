@@ -1,11 +1,11 @@
 {
-  "version": "0.2.41",
-  "notes": "优化空原文摘录的定位重试，仍保留全文复核；改善模板识别及人工纠正；新增自动问题认可、误报、待核实和撤销及处置历史；雷达支持评价口径筛选、缺样本说明；档案提示来源变化，模板数量单列；改进本地检查与安全更新。待核实问题须先完成处置再生成报告或更新档案。本地测试与构建通过；反馈文书的真实云端复测及原批次验收尚未完成。",
-  "pub_date": "2026-09-29T03:46:53Z",
+  "version": "0.2.42",
+  "notes": "新增季度质量对照：手动给批次指定季度，对比两期整体质量和检察官变化，导出 Word 与 Excel 对照报告。人员档案支持部分成功文书先入库，并列明排除原因。未完成模板可查看具体文书、人员及判定依据，Word 和 Excel 报告同步列出模板明细。失败、待核实等文书不按零问题计入；不同规则或样本不足时不计算质量差值。",
+  "pub_date": "2026-10-10T07:39:59Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazJmOTBhRkJnWUY0M09sVDg2Qjl5N0dRYlpGanBKS0w5cHMyL1dIVG0wTnFlclo3V1hzR3l0S0NDT3BaUEl0VlVUeWJwLzc2VGhiT3ZWanNjSWJ1aVFjPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkwNjUzNTUwCWZpbGU65paH5Lmm6LSo5qOAXzAuMi40MV94NjQtc2V0dXAuZXhlClFKM1JiS0VkemZ6ZlZDQnlBUzFXdVV5MVZhcXBhWFAzRTRRcWJMOEo5VVYwSlB0UVFLeDhoVDhwUXYzdG16YWZvR1VBaFhtMEdMS1JCdkFWdGREVEFRPT0K",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.41/document-quality-inspector_0.2.41_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazdzNmIzWDhJUDA1RHpuQ3E5NEhFdWs4Q2xLNTFjWVplQmprK2FCckJGMXg5Z2xNSzFWdGs5TWNlTVhUbUV1S0I2cExWWlIyZ20zUWdNbUhSSEpHdlFvPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkxNjE3OTYwCWZpbGU65paH5Lmm6LSo5qOAXzAuMi40Ml94NjQtc2V0dXAuZXhlCnZYN3IwMkxHL2RZbkVRSjFja2F5N2F1NFNwU3ZibFNhMW1uRFNMRmcvaU5oa0tjWWIzZHhOOTZKb1ZjUkNQVnhPbzJyVE1Fci9raUpENGpuWEVBWUJBPT0K",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.42/document-quality-inspector_0.2.42_x64-setup.exe.bin"
     }
   }
 }
