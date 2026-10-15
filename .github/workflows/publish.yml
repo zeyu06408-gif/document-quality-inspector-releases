@@ -129,17 +129,17 @@ jobs:
           set -euo pipefail
           windows_file="document-quality-inspector_${RELEASE_VERSION}_x64-setup.exe"
           windows_cdn_file="${windows_file}.bin"
-          cdn_base="https://cdn.jsdelivr.net/gh/${GITHUB_REPOSITORY}@main/updates/v${RELEASE_VERSION}"
+          download_base="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/updates/v${RELEASE_VERSION}"
           jq -n \
             --arg version "$RELEASE_VERSION" \
             --arg notes "$RELEASE_NOTES" \
             --arg pub_date "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
             --arg windows_signature "$(tr -d '\r\n' < "release-assets/${windows_file}.sig")" \
-            --arg windows_url "${cdn_base}/${windows_cdn_file}" \
+            --arg windows_url "${download_base}/${windows_cdn_file}" \
             '{version:$version,notes:$notes,pub_date:$pub_date,platforms:{"windows-x86_64":{signature:$windows_signature,url:$windows_url}}}' \
             > release-assets/latest.json
 
-      - name: 发布大陆可访问的 CDN 文件
+      - name: 发布更新文件
         shell: bash
         run: |
           set -euo pipefail
@@ -188,6 +188,13 @@ jobs:
             echo "低缓存客户端更新地址未返回 ${RELEASE_VERSION}，拒绝宣告发布成功" >&2
             exit 1
           fi
+
+          # Verify the actual installer route, not only the manifest version.
+          download_url="$(jq -r '.platforms["windows-x86_64"].url' release-assets/latest.json)"
+          curl --fail --location --silent --show-error --connect-timeout 20 --max-time 300 \
+            "$download_url" -o /tmp/verified-update.bin
+          cmp "release-assets/document-quality-inspector_${RELEASE_VERSION}_x64-setup.exe" /tmp/verified-update.bin
+          rm /tmp/verified-update.bin
 
           cdn_endpoint="https://cdn.jsdelivr.net/gh/${GITHUB_REPOSITORY}@main/latest.json"
           cdn_actual="$(curl --fail --silent --show-error "$cdn_endpoint" | jq -r '.version // empty' || true)"

@@ -5,7 +5,7 @@
   "platforms": {
     "windows-x86_64": {
       "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazBFaC9ROWd3Z2J1SERHcjBLK0pWWnRMaFMvTm1wd0JvY1pRMGhoSzlPWUxVNjkrYjlOQkpqNEROOG9MZWxrQk5yTXAvNmdWSGgvZi9JQzZqc0dLTXdnPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyMDI5ODU5CWZpbGU65paH5Lmm6LSo5qOAXzAuMi40NV94NjQtc2V0dXAuZXhlCjFZNy8yZC9CWHBUb0NZUjNwV3dRMGtVQWY2OVJoWkRzQWhtSTQwQThTU1krVk0xN1BuVDhNaWVoelMvcEVOOUs2MlRWc0I2cVNVeWI1MG95VnY4MUFRPT0K",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.45/document-quality-inspector_0.2.45_x64-setup.exe.bin"
+      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.45/document-quality-inspector_0.2.45_x64-setup.exe.bin"
     }
   }
 }
