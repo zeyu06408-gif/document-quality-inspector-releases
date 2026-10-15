@@ -1,11 +1,11 @@
 {
-  "version": "0.2.44",
-  "notes": "# 0.2.44 更新说明\n\n- 人员档案新增“按院”六维雷达图，可对比本院与各院平均，并查看人员构成和文书明细。\n- 收紧审查报告检查边界，认可等价表述和可对应的合并分析；章节错置改为人工核对，依赖案卷或外部材料的判断暂不列入复核清单。\n- 修复已移出清单的旧人工确认仍留在当前统计的问题，保留复核历史；旧报告和已入库档案需重新生成或预览更新。\n- 优化人工复核的保存、刷新及历史状态提示，减少旧内容错配和保存状态误解。\n- “检查更新”旁新增问号圈，点击查看当前版本更新摘要；发现新版本时同时展示新版本说明。\n\n院级得分在各文书类型等权计算个人分数后，按院内人员等权汇总；各院平均按院等权计算。不同人员与院的检查口径可能不同，图表用于描述，不作为严格同口径排名。\n\n新的检查边界用于重新分析。历史复核记录保留；移出清单的旧人工问题退出当前计错，已导出文件及档案快照不会自动改写。统计分布及排名报表本次未新增。未执行真实用户数据库或云端文书回放。\n",
-  "pub_date": "2026-10-13T09:59:43Z",
+  "version": "0.2.45",
+  "notes": "# 0.2.45 更新说明\n\n- 新增可选“个人综合评议”：完成规则质检后，按同一批次、同一人员汇总起诉书和审查报告，给出有原文依据的特点、问题及改进建议；默认关闭。\n- 支持简要、标准、详细三档。长文分段阅读、材料分组汇总，失败可续接，支持停止并保留已完成阶段。\n- 每项意见可人工采纳或不采纳，并单独导出个人综合评议 DOCX；文书或复核结果变化后，旧评议标为过期。\n- 个人及院级六维雷达图支持保存 PNG，保留名称、筛选条件、图例和分数。\n- 原有按院、按人、按地区的统计和报告口径保持不变。综合评议不计入错误数、评分、排名或季度指标。\n\n综合评议额外调用当前配置的云端模型，材料越多、输出越详细，通常耗时与费用越高。未完成分析或类型不适用的文书不纳入；仅一份样本时限制为单篇观察。所有意见均为供人工审核的辅助内容。\n\n验证：296 项 Rust 测试通过、20 项依赖额外环境未执行；前端类型检查、Clippy、macOS arm64 桌面调试编译及合成数据界面操作检查通过。没有执行真实文书云端回放或用户生产数据库验收。\n\n兼容性：仅新增独立评议和检查点表，不迁移既有统计数据。回滚应用后原有质检仍可使用，新增评议不在旧版本展示；已经导出的文件保留。\n",
+  "pub_date": "2026-10-15T02:05:06Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazh3UU5CMFZuN0dya0paUzZRN3g3b0hySXF3TGtlNHRyeVB0NUtERlVEWXBTSi8rQzRzd3VZQXlnUWVKb3dSeHNNM2pjUEg4cm5SRjBVT1cva2swS2dNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkxODg1NTQ0CWZpbGU65paH5Lmm6LSo5qOAXzAuMi40NF94NjQtc2V0dXAuZXhlCnRBYTFrQmVQclhmS1UrTml6d1hIaGI3eDVRenZIUjg0OExPQnZhK3hoZEdLSU5uL2szNWRFTDRvUENRMlNPc0FIYlphWnhmV0U3d2NodXN2WURkckNRPT0K",
-      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.44/document-quality-inspector_0.2.44_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazBFaC9ROWd3Z2J1SERHcjBLK0pWWnRMaFMvTm1wd0JvY1pRMGhoSzlPWUxVNjkrYjlOQkpqNEROOG9MZWxrQk5yTXAvNmdWSGgvZi9JQzZqc0dLTXdnPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyMDI5ODU5CWZpbGU65paH5Lmm6LSo5qOAXzAuMi40NV94NjQtc2V0dXAuZXhlCjFZNy8yZC9CWHBUb0NZUjNwV3dRMGtVQWY2OVJoWkRzQWhtSTQwQThTU1krVk0xN1BuVDhNaWVoelMvcEVOOUs2MlRWc0I2cVNVeWI1MG95VnY4MUFRPT0K",
+      "url": "https://cdn.jsdelivr.net/gh/zeyu06408-gif/document-quality-inspector-releases@main/updates/v0.2.45/document-quality-inspector_0.2.45_x64-setup.exe.bin"
     }
   }
 }
