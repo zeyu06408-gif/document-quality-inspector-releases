@@ -1,15 +1,15 @@
 {
-  "version": "0.2.47",
-  "notes": "# 0.2.47 更新说明\n\n- 修复个人综合评议因引用中的空格、换行或制表符差异而误报无法匹配原文的问题。仅恢复真实原文中的空白，文字、数字、标点仍严格核验，禁止跨摘录拼接。\n- 规则材料明确提供已核验的原文摘录，保留人工复核状态；完善单篇问题与跨文书重复问题的区分。\n- 校验失败时将具体字段及字数、条数限制反馈给重试，排障日志同步记录安全的约束信息。\n- 失败提示新增参与评议的文书名，方便定位样本。\n\n验证：针对性本地测试、前端类型检查及构建、Clippy、Mac桌面调试编译通过。经授权，五份原文的两轮阅读及汇总复测均通过；补充报告重建的12条规则明细及原文汇总复测通过。真实材料与请求日志不进入源码仓库。未完成客户原23人整批验收；历史规则ID和人工复核状态缺失的重建测试不等同于生产数据库回放。\n\n兼容性与回滚：不改变数据库结构、规则质检结果及统计口径；不放宽实质引用核验。更新后保持原档位继续评议，提示变化的阶段可能重新计算。可安装上一版回滚，数据结构无需回退。\n",
-  "pub_date": "2026-10-16T08:12:35Z",
+  "version": "0.2.48",
+  "notes": "# 0.2.48 更新说明\n\n- 修复 Windows 安装包下载只有单一线路的问题：网络请求失败、超时或 HTTP 错误时自动切换 GitHub Release、CDN 与 Raw 的其他可用线路，界面显示当前线路和切换状态。\n- Windows 连接建立超过 12 秒、单次读取等待超过 30 秒会结束该线路请求；每条线路总下载预算为 300 秒。切换时重新下载，不混用不同线路的部分文件。\n- 每条线路继续使用更新清单中的同一签名和应用内置公钥验签；签名或文件处理失败直接停止，只有验证通过的完整安装包能够安装。\n- 排障日志记录更新阶段、线路、已接收字节数、耗时和底层连接错误，便于区分连接、传输和安装问题。离开页面或重新检查时释放旧下载资源。\n- 保留 Mac Apple Silicon 更新包及现有 Mac 下载线路；不调整文书分析、数据结构及统计逻辑。\n\n验证：下载切换、成功即停止、非网络错误不重试、全部线路失败及 URL/版本边界的针对性测试；前端构建、Rust Clippy 与 Tauri 桌面编译。具体结果以 PR 检查为准。未在客户故障网络上实测，备用线路不能保证在全部外网均被限制时可用。\n\n升级与回滚：0.2.46/0.2.47 没有新的下载逻辑，自动下载失败的用户需要先使用 0.2.48 安装包覆盖安装一次；不要卸载或删除数据目录。之后可使用多线路自动更新。无数据库迁移，可重新安装上一版本回滚。\n",
+  "pub_date": "2026-10-16T09:07:37Z",
   "platforms": {
     "windows-x86_64": {
       "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazhiclVLSjdBcTAvY0hkQ2sxc3BnS2pBMTZPbXBNWC9BK3A5WVNWdjlyeGdFd09raWN1RDRyeGFJQUZyOVRuck9WYmFsQWVqS2JSZ2dueFdOUmd5UkFVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyMTM4MzEwCWZpbGU65paH5Lmm6LSo5qOAXzAuMi40N194NjQtc2V0dXAuZXhlCjNtenJQU2MxMHVJbXhkVW1Yc1kxNFh2V2M5YXUza0RjY0pxMG5OK3p6QTRXVVRuOGp2N0wxSE4vYUt0Q05yb1RkMi9qOXBEeG0rQ1ZGc3FMUFZxTEN3PT0K",
-      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.47/document-quality-inspector_0.2.47_x64-setup.exe.bin"
+      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.48/document-quality-inspector_0.2.48_x64-setup.exe.bin"
     },
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNa3dZankrQjdORkZyc0k0WnZtWFNMLzBTaS9kckRmYnhicXdIMGNJRlR5SUdRaGkvN2lOY1Boc2IwVlhFeDBKMDVyRFdTQ0syRDZIeHoxbjdLK1FraVF3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyMTQwNjAwCWZpbGU65paH5Lmm6LSo5qOALmFwcC50YXIuZ3oKOTh6TGZvc0toM2hrUU4rYXV0VWZYN3VjWmhWakZCU2NIYjYrNENkTmIwY3hSNm1WSEptdW80cUVlNVlPd1RsRE1WSzVlTFgxY1FmR1NISmxxd0x1QXc9PQo=",
-      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.47/document-quality-inspector_0.2.47_aarch64.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNay9TOE1UL2pLeFR2RCs4K1JkZDRVVEFrUjNaTEg3SWNJVmdGelZ4eGtWT0pQaEUyS0lzNUc3WE1UUUZseVZtRS9wbm9Ia2ZjZDBlZ05UR1RZdW53aVFNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyMTQxNTQ0CWZpbGU65paH5Lmm6LSo5qOALmFwcC50YXIuZ3oKNkU4OTNuYkQ5aExHM3d2eGpYYTFTdzdqQ2cwTStLWnBmSUt2Z3JueWJTRnhCZDdNSytkU0dKSzdZdTJCWXpCaGpUdEVqbisxR2JkaW5kWEUyMHBMQnc9PQo=",
+      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.48/document-quality-inspector_0.2.48_aarch64.app.tar.gz"
     }
   }
 }
