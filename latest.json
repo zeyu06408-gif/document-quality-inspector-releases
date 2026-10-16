@@ -6,6 +6,10 @@
     "windows-x86_64": {
       "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazhiclVLSjdBcTAvY0hkQ2sxc3BnS2pBMTZPbXBNWC9BK3A5WVNWdjlyeGdFd09raWN1RDRyeGFJQUZyOVRuck9WYmFsQWVqS2JSZ2dueFdOUmd5UkFVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyMTM4MzEwCWZpbGU65paH5Lmm6LSo5qOAXzAuMi40N194NjQtc2V0dXAuZXhlCjNtenJQU2MxMHVJbXhkVW1Yc1kxNFh2V2M5YXUza0RjY0pxMG5OK3p6QTRXVVRuOGp2N0wxSE4vYUt0Q05yb1RkMi9qOXBEeG0rQ1ZGc3FMUFZxTEN3PT0K",
       "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.47/document-quality-inspector_0.2.47_x64-setup.exe.bin"
+    },
+    "darwin-aarch64": {
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNa3dZankrQjdORkZyc0k0WnZtWFNMLzBTaS9kckRmYnhicXdIMGNJRlR5SUdRaGkvN2lOY1Boc2IwVlhFeDBKMDVyRFdTQ0syRDZIeHoxbjdLK1FraVF3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyMTQwNjAwCWZpbGU65paH5Lmm6LSo5qOALmFwcC50YXIuZ3oKOTh6TGZvc0toM2hrUU4rYXV0VWZYN3VjWmhWakZCU2NIYjYrNENkTmIwY3hSNm1WSEptdW80cUVlNVlPd1RsRE1WSzVlTFgxY1FmR1NISmxxd0x1QXc9PQo=",
+      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.47/document-quality-inspector_0.2.47_aarch64.app.tar.gz"
     }
   }
 }
