@@ -1,0 +1,71 @@
+name: 构建签名 Mac Apple Silicon 更新包
+on:
+  workflow_call:
+    inputs:
+      version:
+        required: true
+        type: string
+      source_ref:
+        required: true
+        type: string
+    secrets:
+      SOURCE_DEPLOY_KEY:
+        required: true
+      TAURI_SIGNING_PRIVATE_KEY:
+        required: true
+      TAURI_SIGNING_PRIVATE_KEY_PASSWORD:
+        required: true
+jobs:
+  build:
+    runs-on: macos-latest
+    env:
+      RELEASE_VERSION: ${{ inputs.version }}
+      TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+      TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: zeyu06408-gif/document-quality-inspector
+          ref: ${{ inputs.source_ref }}
+          ssh-key: ${{ secrets.SOURCE_DEPLOY_KEY }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: 配置编译环境
+        run: |
+          corepack enable
+          corepack prepare pnpm@10.34.4 --activate
+          rustup target add aarch64-apple-darwin
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            src-tauri/target
+          key: macos-aarch64-rust-${{ hashFiles('src-tauri/Cargo.lock') }}
+          restore-keys: macos-aarch64-rust-
+      - name: 核对版本并构建
+        run: |
+          node -e 'const fs=require("fs");const v=process.env.RELEASE_VERSION;const versions=[require("./package.json").version,require("./src-tauri/tauri.conf.json").version,fs.readFileSync("src-tauri/Cargo.toml","utf8").match(/^version = "([^"]+)"/m)?.[1]];if(versions.some(x=>x!==v))throw Error("版本不一致")'
+          pnpm install --frozen-lockfile
+          pnpm tauri build --target aarch64-apple-darwin --bundles app,dmg
+      - name: 整理签名更新包与安装包
+        env:
+          OUTPUT_DIR: src-tauri/target/aarch64-apple-darwin/release/bundle
+        run: |
+          set -euo pipefail
+          mkdir release-assets
+          archive=("$OUTPUT_DIR"/macos/*.app.tar.gz)
+          dmg=("$OUTPUT_DIR"/dmg/*.dmg)
+          test "${#archive[@]}" -eq 1
+          test "${#dmg[@]}" -eq 1
+          test -s "${archive[0]}.sig"
+          cp "${archive[0]}" "release-assets/document-quality-inspector_${RELEASE_VERSION}_aarch64.app.tar.gz"
+          cp "${archive[0]}.sig" "release-assets/document-quality-inspector_${RELEASE_VERSION}_aarch64.app.tar.gz.sig"
+          cp "${dmg[0]}" "release-assets/document-quality-inspector_${RELEASE_VERSION}_aarch64.dmg"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-macos
+          path: release-assets/*
+          if-no-files-found: error
+          retention-days: 3

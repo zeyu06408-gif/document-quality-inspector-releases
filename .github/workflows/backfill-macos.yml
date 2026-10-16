@@ -1,0 +1,74 @@
+name: 补发现有版本 Mac 更新包
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        required: true
+        type: string
+      source_ref:
+        description: 已发布版本的完整源码提交 SHA
+        required: true
+        type: string
+permissions:
+  contents: write
+concurrency:
+  group: desktop-release
+  cancel-in-progress: false
+jobs:
+  macos:
+    uses: ./.github/workflows/build-macos.yml
+    with:
+      version: ${{ inputs.version }}
+      source_ref: ${{ inputs.source_ref }}
+    secrets: inherit
+  publish:
+    needs: macos
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RELEASE_VERSION: ${{ inputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: release-macos
+          path: release-assets
+      - name: 核验补发目标并合并清单
+        shell: bash
+        run: |
+          set -euo pipefail
+          [[ "$RELEASE_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]
+          gh release view "app-v${RELEASE_VERSION}" >/dev/null
+          test "$(jq -r .version latest.json)" = "$RELEASE_VERSION"
+          test "$(jq -r '.platforms["darwin-aarch64"] // empty' latest.json)" = ""
+          mac_file="document-quality-inspector_${RELEASE_VERSION}_aarch64.app.tar.gz"
+          mkdir -p "updates/v${RELEASE_VERSION}"
+          cp "release-assets/$mac_file" "updates/v${RELEASE_VERSION}/$mac_file"
+          jq --arg signature "$(tr -d '\r\n' < "release-assets/$mac_file.sig")" \
+             --arg url "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/updates/v${RELEASE_VERSION}/$mac_file" \
+             '.platforms["darwin-aarch64"] = {signature:$signature,url:$url}' latest.json > release-assets/latest.json
+          # Existing Windows entries and release notes must be byte-for-byte equivalent as JSON values.
+          diff <(jq -S 'del(.platforms["darwin-aarch64"])' latest.json) <(jq -S 'del(.platforms["darwin-aarch64"])' release-assets/latest.json)
+          cp release-assets/latest.json latest.json
+      - name: 发布 Mac 产物与合并后的清单
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh release upload "app-v${RELEASE_VERSION}" release-assets/*.app.tar.gz release-assets/*.sig release-assets/*.dmg
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add latest.json "updates/v${RELEASE_VERSION}"
+          git commit -m "release: add macOS arm64 update for ${RELEASE_VERSION}"
+          # Fail on concurrent changes instead of overwriting another version's manifest.
+          git push origin HEAD:main
+          gh release upload "app-v${RELEASE_VERSION}" release-assets/latest.json --clobber
+      - name: 核验实际 Mac 下载地址
+        shell: bash
+        run: |
+          set -euo pipefail
+          url="$(jq -r '.platforms["darwin-aarch64"].url' latest.json)"
+          curl --fail --location --retry 5 --retry-all-errors --retry-delay 5 --connect-timeout 20 --max-time 300 "$url?run=${GITHUB_RUN_ID}" -o /tmp/mac-update.tar.gz
+          cmp "release-assets/document-quality-inspector_${RELEASE_VERSION}_aarch64.app.tar.gz" /tmp/mac-update.tar.gz
+          curl --fail --retry 5 --retry-all-errors -H 'Cache-Control: no-cache' "https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/latest.json?run=${GITHUB_RUN_ID}" -o /tmp/latest.json
+          diff <(jq -S . latest.json) <(jq -S . /tmp/latest.json)
+          curl --fail --silent --show-error "https://purge.jsdelivr.net/gh/${GITHUB_REPOSITORY}@main/latest.json" || echo '::warning::备用 CDN 刷新失败，Raw 主地址已验证'
