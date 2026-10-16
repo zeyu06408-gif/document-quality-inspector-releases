@@ -1,11 +1,11 @@
 {
-  "version": "0.2.45",
-  "notes": "# 0.2.45 更新说明\n\n- 新增可选“个人综合评议”：完成规则质检后，按同一批次、同一人员汇总起诉书和审查报告，给出有原文依据的特点、问题及改进建议；默认关闭。\n- 支持简要、标准、详细三档。长文分段阅读、材料分组汇总，失败可续接，支持停止并保留已完成阶段。\n- 每项意见可人工采纳或不采纳，并单独导出个人综合评议 DOCX；文书或复核结果变化后，旧评议标为过期。\n- 个人及院级六维雷达图支持保存 PNG，保留名称、筛选条件、图例和分数。\n- 原有按院、按人、按地区的统计和报告口径保持不变。综合评议不计入错误数、评分、排名或季度指标。\n\n综合评议额外调用当前配置的云端模型，材料越多、输出越详细，通常耗时与费用越高。未完成分析或类型不适用的文书不纳入；仅一份样本时限制为单篇观察。所有意见均为供人工审核的辅助内容。\n\n验证：296 项 Rust 测试通过、20 项依赖额外环境未执行；前端类型检查、Clippy、macOS arm64 桌面调试编译及合成数据界面操作检查通过。没有执行真实文书云端回放或用户生产数据库验收。\n\n兼容性：仅新增独立评议和检查点表，不迁移既有统计数据。回滚应用后原有质检仍可使用，新增评议不在旧版本展示；已经导出的文件保留。\n",
-  "pub_date": "2026-10-15T02:05:06Z",
+  "version": "0.2.46",
+  "notes": "# 0.2.46 更新说明\n\n- 改进个人综合评议的中间记录长度控制、输出截断重试和网络中断恢复，保留断点续接；简要、标准、详细三档的最终目标篇幅不变。\n- 强化原文引用校验失败后的重试提示，不将无依据或截断的结果保存为成功。\n- 补齐个人综合评议排障日志，失败列表新增“打开排障日志”。记录阶段、请求编号、耗时、输出计数和重试原因，不记录文书正文或评议内容。\n- 修复更新检查提前超时导致备用地址来不及完成的问题；下载使用独立超时，并显示具体错误详情。\n\n更新后可保持原档位继续未完成的个人评议；原规则质检结果不受影响。旧版未记录的日志无法事后补录。\n\n验证：298项Rust测试通过，20项依赖额外环境未执行；前端类型检查、生产构建、Clippy和macOS arm64桌面调试编译通过。未进行真实文书云端回放或用户生产批次验收。\n\n兼容性与回滚：不修改数据库结构、统计口径、TLS或更新签名验证。可安装上一版回滚；部分提示变化后的中间检查点需重新计算。\n",
+  "pub_date": "2026-10-16T02:01:54Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazBFaC9ROWd3Z2J1SERHcjBLK0pWWnRMaFMvTm1wd0JvY1pRMGhoSzlPWUxVNjkrYjlOQkpqNEROOG9MZWxrQk5yTXAvNmdWSGgvZi9JQzZqc0dLTXdnPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyMDI5ODU5CWZpbGU65paH5Lmm6LSo5qOAXzAuMi40NV94NjQtc2V0dXAuZXhlCjFZNy8yZC9CWHBUb0NZUjNwV3dRMGtVQWY2OVJoWkRzQWhtSTQwQThTU1krVk0xN1BuVDhNaWVoelMvcEVOOUs2MlRWc0I2cVNVeWI1MG95VnY4MUFRPT0K",
-      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.45/document-quality-inspector_0.2.45_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazYxNjNRU2VmUUNtZk9idFZ0NVMwcThScVRiRmIzWFF3TTVzV29sVkFVQUhiZFZsWlRFeGNxR3dZV3h0TnAxdVpyMk5rL3ZZbm5kQzNCZzB2SXF5amd3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyMTE2MDYyCWZpbGU65paH5Lmm6LSo5qOAXzAuMi40Nl94NjQtc2V0dXAuZXhlCmd6SEZINWlOb2JpbEZGdjdHYXlVM01LdENqd2ROTlI4S3piRDc1a25pSVA2VCtUSDhXWVcyRzlrODhnaWVLK2Z5UXlNeFphZlpEWVl3YUUrTFdLVUFBPT0K",
+      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.46/document-quality-inspector_0.2.46_x64-setup.exe.bin"
     }
   }
 }
