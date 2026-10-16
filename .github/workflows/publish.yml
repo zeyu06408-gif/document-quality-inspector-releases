@@ -20,7 +20,18 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: desktop-release
+  cancel-in-progress: false
+
 jobs:
+  macos:
+    uses: ./.github/workflows/build-macos.yml
+    with:
+      version: ${{ inputs.version }}
+      source_ref: ${{ inputs.source_ref }}
+    secrets: inherit
+
   build:
     name: 构建 Windows x64
     runs-on: windows-latest
@@ -73,7 +84,7 @@ jobs:
             src-tauri/target
           key: ${{ runner.os }}-rust-x86_64-pc-windows-msvc-${{ hashFiles('src-tauri/Cargo.lock') }}
           restore-keys: |
-            ${{ runner.os }}-rust-${{ matrix.rust_target }}-
+            ${{ runner.os }}-rust-x86_64-pc-windows-msvc-
 
       - name: 核对版本号
         shell: bash
@@ -104,7 +115,7 @@ jobs:
 
   publish:
     name: 验证并发布
-    needs: build
+    needs: [build, macos]
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ github.token }}
@@ -129,6 +140,7 @@ jobs:
           set -euo pipefail
           windows_file="document-quality-inspector_${RELEASE_VERSION}_x64-setup.exe"
           windows_cdn_file="${windows_file}.bin"
+          mac_file="document-quality-inspector_${RELEASE_VERSION}_aarch64.app.tar.gz"
           download_base="https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/main/updates/v${RELEASE_VERSION}"
           jq -n \
             --arg version "$RELEASE_VERSION" \
@@ -136,7 +148,9 @@ jobs:
             --arg pub_date "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
             --arg windows_signature "$(tr -d '\r\n' < "release-assets/${windows_file}.sig")" \
             --arg windows_url "${download_base}/${windows_cdn_file}" \
-            '{version:$version,notes:$notes,pub_date:$pub_date,platforms:{"windows-x86_64":{signature:$windows_signature,url:$windows_url}}}' \
+            --arg mac_signature "$(tr -d '\r\n' < "release-assets/${mac_file}.sig")" \
+            --arg mac_url "${download_base}/${mac_file}" \
+            '{version:$version,notes:$notes,pub_date:$pub_date,platforms:{"windows-x86_64":{signature:$windows_signature,url:$windows_url},"darwin-aarch64":{signature:$mac_signature,url:$mac_url}}}' \
             > release-assets/latest.json
 
       - name: 发布更新文件
@@ -148,6 +162,7 @@ jobs:
           mkdir -p "$version_dir"
           cp release-assets/document-quality-inspector_${RELEASE_VERSION}_x64-setup.exe \
             "$version_dir/document-quality-inspector_${RELEASE_VERSION}_x64-setup.exe.bin"
+          cp "release-assets/document-quality-inspector_${RELEASE_VERSION}_aarch64.app.tar.gz" "$version_dir/"
           cp release-assets/latest.json publisher/latest.json
           cd publisher
           git config user.name "github-actions[bot]"
@@ -195,6 +210,11 @@ jobs:
             "$download_url" -o /tmp/verified-update.bin
           cmp "release-assets/document-quality-inspector_${RELEASE_VERSION}_x64-setup.exe" /tmp/verified-update.bin
           rm /tmp/verified-update.bin
+          mac_url="$(jq -r '.platforms["darwin-aarch64"].url' release-assets/latest.json)"
+          curl --fail --location --retry 5 --retry-all-errors --retry-delay 5 --connect-timeout 20 --max-time 300 \
+            "$mac_url" -o /tmp/verified-mac-update.tar.gz
+          cmp "release-assets/document-quality-inspector_${RELEASE_VERSION}_aarch64.app.tar.gz" /tmp/verified-mac-update.tar.gz
+          rm /tmp/verified-mac-update.tar.gz
 
           cdn_endpoint="https://cdn.jsdelivr.net/gh/${GITHUB_REPOSITORY}@main/latest.json"
           cdn_actual="$(curl --fail --silent --show-error "$cdn_endpoint" | jq -r '.version // empty' || true)"
