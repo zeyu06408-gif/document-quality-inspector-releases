@@ -48,6 +48,7 @@ jobs:
         run: |
           node -e 'const fs=require("fs");const v=process.env.RELEASE_VERSION;const versions=[require("./package.json").version,require("./src-tauri/tauri.conf.json").version,fs.readFileSync("src-tauri/Cargo.toml","utf8").match(/^version = "([^"]+)"/m)?.[1]];if(versions.some(x=>x!==v))throw Error("版本不一致")'
           pnpm install --frozen-lockfile
+          rm -rf src-tauri/target/aarch64-apple-darwin/release/bundle
           pnpm tauri build --target aarch64-apple-darwin --bundles app,dmg
       - name: 整理签名更新包与安装包
         env:

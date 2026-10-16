@@ -94,6 +94,12 @@ jobs:
       - name: 安装依赖
         run: pnpm install --frozen-lockfile
 
+      - name: 清除缓存中的旧安装包
+        shell: pwsh
+        run: |
+          $bundle = "src-tauri/target/x86_64-pc-windows-msvc/release/bundle"
+          if (Test-Path $bundle) { Remove-Item -Recurse -Force $bundle }
+
       - name: 构建 Windows 安装包
         run: pnpm tauri build --target x86_64-pc-windows-msvc --bundles nsis
 
@@ -101,7 +107,22 @@ jobs:
         shell: pwsh
         run: |
           New-Item -ItemType Directory -Force release-assets | Out-Null
-          $installer = Get-ChildItem src-tauri/target/x86_64-pc-windows-msvc/release/bundle/nsis/*.exe | Select-Object -First 1
+          $ErrorActionPreference = "Stop"
+          $product = (Get-Content src-tauri/tauri.conf.json -Raw | ConvertFrom-Json).productName
+          $installer = Get-Item -LiteralPath "src-tauri/target/x86_64-pc-windows-msvc/release/bundle/nsis/${product}_${env:RELEASE_VERSION}_x64-setup.exe"
+          if (-not (Test-Path -LiteralPath "$($installer.FullName).sig")) { throw "缺少更新签名" }
+          $expectedVersions = @($env:RELEASE_VERSION, "$($env:RELEASE_VERSION).0")
+          if ($installer.VersionInfo.ProductVersion -notin $expectedVersions) { throw "安装包内部版本不匹配：$($installer.VersionInfo.ProductVersion)" }
+          $verifyDir = Join-Path $env:RUNNER_TEMP "verify-windows-installer"
+          if (Test-Path $verifyDir) { Remove-Item -Recurse -Force $verifyDir }
+          & 7z x $installer.FullName "-o$verifyDir" -y
+          if ($LASTEXITCODE -ne 0) { throw "解包验证失败" }
+          $payload = @(Get-ChildItem $verifyDir -Recurse -Filter document-quality-inspector.exe)
+          if ($payload.Count -ne 1) { throw "安装包中主程序数量异常" }
+          if ($payload[0].VersionInfo.ProductVersion -notin $expectedVersions) { throw "安装包中主程序版本不匹配" }
+          $compiled = "src-tauri/target/x86_64-pc-windows-msvc/release/document-quality-inspector.exe"
+          if ((Get-FileHash $payload[0].FullName).Hash -ne (Get-FileHash $compiled).Hash) { throw "安装包中的主程序不是本次编译产物" }
+          Write-Host "安装包及内含主程序版本验证通过：$env:RELEASE_VERSION"
           Copy-Item $installer.FullName "release-assets/document-quality-inspector_${env:RELEASE_VERSION}_x64-setup.exe"
           Copy-Item "$($installer.FullName).sig" "release-assets/document-quality-inspector_${env:RELEASE_VERSION}_x64-setup.exe.sig"
 
