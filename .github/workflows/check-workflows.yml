@@ -16,3 +16,17 @@ jobs:
           curl --fail --location --retry 3 https://github.com/rhysd/actionlint/releases/download/v1.7.12/actionlint_1.7.12_linux_amd64.tar.gz -o /tmp/actionlint.tar.gz
           tar -xzf /tmp/actionlint.tar.gz -C /tmp actionlint
           /tmp/actionlint -shellcheck= -pyflakes=
+      - name: 校验 Windows PowerShell 脚本语法
+        shell: pwsh
+        run: |
+          $workflow = Get-Content .github/workflows/publish.yml -Raw
+          $blocks = [regex]::Matches($workflow, '(?m)^        shell: pwsh\r?\n        run: \|\r?\n(?<body>(?:^          .*\r?\n)+)')
+          if ($blocks.Count -lt 3) { throw '未找到 Windows 发布校验脚本' }
+          foreach ($block in $blocks) {
+            $code = [regex]::Replace($block.Groups['body'].Value, '(?m)^          ', '')
+            $parseErrors = $null
+            $tokens = $null
+            $null = [System.Management.Automation.Language.Parser]::ParseInput($code, [ref]$tokens, [ref]$parseErrors)
+            if ($parseErrors.Count) { throw ($parseErrors | Out-String) }
+          }
+          Write-Host "PowerShell syntax validated: $($blocks.Count) steps"

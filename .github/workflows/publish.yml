@@ -117,14 +117,57 @@ jobs:
           if (Test-Path $verifyDir) { Remove-Item -Recurse -Force $verifyDir }
           & 7z x $installer.FullName "-o$verifyDir" -y
           if ($LASTEXITCODE -ne 0) { throw "解包验证失败" }
-          $payload = @(Get-ChildItem $verifyDir -Recurse -Filter document-quality-inspector.exe)
-          if ($payload.Count -ne 1) { throw "安装包中主程序数量异常" }
-          if ($payload[0].VersionInfo.ProductVersion -notin $expectedVersions) { throw "安装包中主程序版本不匹配" }
-          $compiled = "src-tauri/target/x86_64-pc-windows-msvc/release/document-quality-inspector.exe"
-          if ((Get-FileHash $payload[0].FullName).Hash -ne (Get-FileHash $compiled).Hash) { throw "安装包中的主程序不是本次编译产物" }
-          Write-Host "安装包及内含主程序版本验证通过：$env:RELEASE_VERSION"
+          $extracted = @(Get-ChildItem $verifyDir -Recurse -Filter document-quality-inspector.exe)
+          if ($extracted.Count -ne 1) { throw "解包主程序数量异常" }
+          $compiled = Get-Item -LiteralPath "src-tauri/target/x86_64-pc-windows-msvc/release/document-quality-inspector.exe"
+          if ($compiled.VersionInfo.ProductVersion -notin $expectedVersions) { throw "编译主程序版本不匹配" }
+          $installDir = Join-Path $env:RUNNER_TEMP "dqi-install-verification"
+          if (Test-Path $installDir) { Remove-Item -Recurse -Force $installDir }
+          # Exercise the actual NSIS installation path in this disposable runner.
+          # /NS prevents shortcuts; omit /R so the application is never launched.
+          $process = Start-Process -FilePath $installer.FullName -ArgumentList @('/S', '/NS', "/D=$installDir") -PassThru
+          if (-not $process.WaitForExit(300000)) {
+            Stop-Process -Id $process.Id -Force -ErrorAction SilentlyContinue
+            throw "静默安装超过 5 分钟，停止发布"
+          }
+          if ($process.ExitCode -ne 0) { throw "静默安装失败：$($process.ExitCode)" }
+          $installed = Get-Item -LiteralPath (Join-Path $installDir 'document-quality-inspector.exe')
+          $compiledHash = (Get-FileHash -LiteralPath $compiled.FullName -Algorithm SHA256).Hash
+          $installedHash = (Get-FileHash -LiteralPath $installed.FullName -Algorithm SHA256).Hash
+          $extractedHash = (Get-FileHash -LiteralPath $extracted[0].FullName -Algorithm SHA256).Hash
+          $report = [ordered]@{
+            version = $env:RELEASE_VERSION
+            installerVersion = $installer.VersionInfo.ProductVersion
+            compiledVersion = $compiled.VersionInfo.ProductVersion
+            installedVersion = $installed.VersionInfo.ProductVersion
+            compiledSha256 = $compiledHash
+            installedSha256 = $installedHash
+            extractedSha256 = $extractedHash
+            compiledBytes = $compiled.Length
+            installedBytes = $installed.Length
+            extractedBytes = $extracted[0].Length
+          }
+          $report | ConvertTo-Json | Tee-Object -FilePath "release-assets/windows-verification.json"
+          if ($installed.VersionInfo.ProductVersion -notin $expectedVersions) { throw "实际安装主程序版本不匹配" }
+          if ($installedHash -ne $compiledHash) { throw "实际安装主程序与本次编译产物不一致，停止发布" }
+          if ($extractedHash -ne $compiledHash) { Write-Warning "第三方解压结果不同；实际静默安装的主程序已通过逐字节哈希核验" }
+          Write-Host "安装包及实际安装主程序验证通过：$env:RELEASE_VERSION"
           Copy-Item $installer.FullName "release-assets/document-quality-inspector_${env:RELEASE_VERSION}_x64-setup.exe"
           Copy-Item "$($installer.FullName).sig" "release-assets/document-quality-inspector_${env:RELEASE_VERSION}_x64-setup.exe.sig"
+
+      - name: 保留 Windows 验证诊断
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-verification-diagnostics
+          path: |
+            release-assets/windows-verification.json
+            src-tauri/target/x86_64-pc-windows-msvc/release/bundle/nsis/*.exe
+            src-tauri/target/x86_64-pc-windows-msvc/release/document-quality-inspector.exe
+            ${{ runner.temp }}/verify-windows-installer/**/document-quality-inspector.exe
+            ${{ runner.temp }}/dqi-install-verification/document-quality-inspector.exe
+          if-no-files-found: warn
+          retention-days: 3
 
       - name: 暂存平台产物
         uses: actions/upload-artifact@v4
