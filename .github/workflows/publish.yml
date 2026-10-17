@@ -103,6 +103,15 @@ jobs:
       - name: 构建 Windows 安装包
         run: pnpm tauri build --target x86_64-pc-windows-msvc --bundles nsis
 
+      - name: 读取发布校验脚本
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository }}
+          ref: ${{ github.sha }}
+          path: publisher-tools
+          sparse-checkout: scripts
+          persist-credentials: false
+
       - name: 整理 Windows 发布文件
         shell: pwsh
         run: |
@@ -149,8 +158,9 @@ jobs:
           }
           $report | ConvertTo-Json | Tee-Object -FilePath "release-assets/windows-verification.json"
           if ($installed.VersionInfo.ProductVersion -notin $expectedVersions) { throw "实际安装主程序版本不匹配" }
-          if ($installedHash -ne $compiledHash) { throw "实际安装主程序与本次编译产物不一致，停止发布" }
-          if ($extractedHash -ne $compiledHash) { Write-Warning "第三方解压结果不同；实际静默安装的主程序已通过逐字节哈希核验" }
+          python publisher-tools/scripts/verify_windows_payload.py $compiled.FullName $installed.FullName $extracted[0].FullName > release-assets/windows-payload-verification.json
+          if ($LASTEXITCODE -ne 0) { throw "实际安装主程序超出允许的 Tauri UNK -> NSS 标记变更，停止发布" }
+          Get-Content release-assets/windows-payload-verification.json
           Write-Host "安装包及实际安装主程序验证通过：$env:RELEASE_VERSION"
           Copy-Item $installer.FullName "release-assets/document-quality-inspector_${env:RELEASE_VERSION}_x64-setup.exe"
           Copy-Item "$($installer.FullName).sig" "release-assets/document-quality-inspector_${env:RELEASE_VERSION}_x64-setup.exe.sig"
@@ -162,6 +172,7 @@ jobs:
           name: windows-verification-diagnostics
           path: |
             release-assets/windows-verification.json
+            release-assets/windows-payload-verification.json
             src-tauri/target/x86_64-pc-windows-msvc/release/bundle/nsis/*.exe
             src-tauri/target/x86_64-pc-windows-msvc/release/document-quality-inspector.exe
             ${{ runner.temp }}/verify-windows-installer/**/document-quality-inspector.exe

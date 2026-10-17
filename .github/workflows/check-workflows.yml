@@ -3,6 +3,7 @@ on:
   pull_request:
     paths:
       - '.github/workflows/**'
+      - 'scripts/**'
 permissions:
   contents: read
 jobs:
@@ -30,3 +31,5 @@ jobs:
             if ($parseErrors.Count) { throw ($parseErrors | Out-String) }
           }
           Write-Host "PowerShell syntax validated: $($blocks.Count) steps"
+      - name: 校验主程序比对规则
+        run: python3 scripts/test_verify_windows_payload.py
