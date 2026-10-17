@@ -1,15 +1,15 @@
 {
-  "version": "0.2.48",
-  "notes": "# 0.2.48 更新说明\n\n- 修复 Windows 安装包下载只有单一线路的问题：网络请求失败、超时或 HTTP 错误时自动切换 GitHub Release、CDN 与 Raw 的其他可用线路，界面显示当前线路和切换状态。\n- Windows 连接建立超过 12 秒、单次读取等待超过 30 秒会结束该线路请求；每条线路总下载预算为 300 秒。切换时重新下载，不混用不同线路的部分文件。\n- 每条线路继续使用更新清单中的同一签名和应用内置公钥验签；签名或文件处理失败直接停止，只有验证通过的完整安装包能够安装。\n- 排障日志记录更新阶段、线路、已接收字节数、耗时和底层连接错误，便于区分连接、传输和安装问题。离开页面或重新检查时释放旧下载资源。\n- 保留 Mac Apple Silicon 更新包及现有 Mac 下载线路；不调整文书分析、数据结构及统计逻辑。\n\n验证：下载切换、成功即停止、非网络错误不重试、全部线路失败及 URL/版本边界的针对性测试；前端构建、Rust Clippy 与 Tauri 桌面编译。具体结果以 PR 检查为准。未在客户故障网络上实测，备用线路不能保证在全部外网均被限制时可用。\n\n升级与回滚：0.2.46/0.2.47 没有新的下载逻辑，自动下载失败的用户需要先使用 0.2.48 安装包覆盖安装一次；不要卸载或删除数据目录。之后可使用多线路自动更新。无数据库迁移，可重新安装上一版本回滚。\n",
-  "pub_date": "2026-10-16T09:07:37Z",
+  "version": "0.2.50",
+  "notes": "# 0.2.50 更新说明\n\n- 人员档案新增累计分析报告，由用户单独点击生成，不增加首次上传质检的模型任务。\n- 支持跨入库批次原文留存、旧资料补齐、分段阅读与失败续接。\n- 支持报告编辑、原稿对照、修订历史、独立自由分析与 Word 导出。\n- 模型评议为待人工审核草稿，可出现误判，不计入规则错误、雷达评分或排名；用户可修改、排除章节。\n- 修复 Windows 安装包发布时对 Tauri 安装标记变化的校验，提供独立安装包供旧版本手动更新。\n\n验证：四份授权真实文书均完成生成与导出、引用可回查；发现的数额推断误判尚未完全消除。当前按正文哈希去重，不自动合并修订版；同人多文书的累计质量仍需反馈验证。\n",
+  "pub_date": "2026-10-17T09:13:18Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazhiclVLSjdBcTAvY0hkQ2sxc3BnS2pBMTZPbXBNWC9BK3A5WVNWdjlyeGdFd09raWN1RDRyeGFJQUZyOVRuck9WYmFsQWVqS2JSZ2dueFdOUmd5UkFVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyMTM4MzEwCWZpbGU65paH5Lmm6LSo5qOAXzAuMi40N194NjQtc2V0dXAuZXhlCjNtenJQU2MxMHVJbXhkVW1Yc1kxNFh2V2M5YXUza0RjY0pxMG5OK3p6QTRXVVRuOGp2N0wxSE4vYUt0Q05yb1RkMi9qOXBEeG0rQ1ZGc3FMUFZxTEN3PT0K",
-      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.48/document-quality-inspector_0.2.48_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazh1L1pXZFI5RG12ZkVKL01TeFZFMURjb2w2NG12MEZNWjQvQ1h1SXdzVjduZkwrd0hDRkQ5RGFjS2hxbTNBbTd1di9ORUNjdXByQTc2QVhRVWJZNGdJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyMjI4MzE4CWZpbGU65paH5Lmm6LSo5qOAXzAuMi41MF94NjQtc2V0dXAuZXhlCjZybmNwdzJkQW9OcjJPVzgxYnhUdkxTOVc0Z3dQMzNoOExRQnNMOW9ISGtMS2VPYWtpcTNMTm9mVnN3Q0NjUUpWb2U1cjFmeiszUGY5MWlEMWpaaEJBPT0K",
+      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.50/document-quality-inspector_0.2.50_x64-setup.exe.bin"
     },
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNay9TOE1UL2pLeFR2RCs4K1JkZDRVVEFrUjNaTEg3SWNJVmdGelZ4eGtWT0pQaEUyS0lzNUc3WE1UUUZseVZtRS9wbm9Ia2ZjZDBlZ05UR1RZdW53aVFNPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyMTQxNTQ0CWZpbGU65paH5Lmm6LSo5qOALmFwcC50YXIuZ3oKNkU4OTNuYkQ5aExHM3d2eGpYYTFTdzdqQ2cwTStLWnBmSUt2Z3JueWJTRnhCZDdNSytkU0dKSzdZdTJCWXpCaGpUdEVqbisxR2JkaW5kWEUyMHBMQnc9PQo=",
-      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.48/document-quality-inspector_0.2.48_aarch64.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNa3lJQ0RUOHBOdURPQU9iZXdEVHZYSW8zdUJOaFA2bE0wdEZPY2JJRkRxK042ZGpsaWFPSE16WkJLQjV6RGlJWkVMN0g4dGFrT2ZnUkR2RzMxOG9qN2dzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyMjI4MjE4CWZpbGU65paH5Lmm6LSo5qOALmFwcC50YXIuZ3oKU24wK0NKUUNVQ09ONnZ1ZzVTNFdSQ0s2V0lWOFBmd1hLbjcxUDc2MHc1azhnZ1JYVktxcXhsYTVubVNWR1lPcmdPNm1qUUF1NktUaTZqOFYzME55Q2c9PQo=",
+      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.50/document-quality-inspector_0.2.50_aarch64.app.tar.gz"
     }
   }
 }
