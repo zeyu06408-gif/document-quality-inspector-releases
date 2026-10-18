@@ -1,15 +1,15 @@
 {
-  "version": "0.2.50",
-  "notes": "# 0.2.50 更新说明\n\n- 人员档案新增累计分析报告，由用户单独点击生成，不增加首次上传质检的模型任务。\n- 支持跨入库批次原文留存、旧资料补齐、分段阅读与失败续接。\n- 支持报告编辑、原稿对照、修订历史、独立自由分析与 Word 导出。\n- 模型评议为待人工审核草稿，可出现误判，不计入规则错误、雷达评分或排名；用户可修改、排除章节。\n- 修复 Windows 安装包发布时对 Tauri 安装标记变化的校验，提供独立安装包供旧版本手动更新。\n\n验证：四份授权真实文书均完成生成与导出、引用可回查；发现的数额推断误判尚未完全消除。当前按正文哈希去重，不自动合并修订版；同人多文书的累计质量仍需反馈验证。\n",
-  "pub_date": "2026-10-17T09:13:18Z",
+  "version": "0.2.51",
+  "notes": "# 0.2.51 更新说明\n\n- 新增批次三性分析报告，汇总同一批次的文书质检结果与原文依据，由用户单独点击生成。\n- 支持持续补充样本后更新报告、分段阅读、阶段缓存和失败续接，不增加首次上传分析任务。\n- 支持编辑、锁定章节、历史版本对照和 Word 导出；同一统计范围内保留人工修改。\n- 支持预览统计范围、排除指定样本与核查问题，模型评议不改变原有规则评分和雷达图。\n- 人员累计分析报告和批次三性分析报告新增可展开说明，解释数据来源、生成过程、增量更新与编辑保留方式。\n\n验证：前端构建、327项 Rust 测试、Clippy 和桌面调试构建通过；使用模拟模型验证缓存、续接、增量样本及人工修改保留。新批次模块尚未完成真实批次云端内容质量验收，生成内容仍需人工审核。\n",
+  "pub_date": "2026-10-18T07:51:19Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazh1L1pXZFI5RG12ZkVKL01TeFZFMURjb2w2NG12MEZNWjQvQ1h1SXdzVjduZkwrd0hDRkQ5RGFjS2hxbTNBbTd1di9ORUNjdXByQTc2QVhRVWJZNGdJPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyMjI4MzE4CWZpbGU65paH5Lmm6LSo5qOAXzAuMi41MF94NjQtc2V0dXAuZXhlCjZybmNwdzJkQW9OcjJPVzgxYnhUdkxTOVc0Z3dQMzNoOExRQnNMOW9ISGtMS2VPYWtpcTNMTm9mVnN3Q0NjUUpWb2U1cjFmeiszUGY5MWlEMWpaaEJBPT0K",
-      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.50/document-quality-inspector_0.2.50_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNa3l5Ui9FT1E1elo1OG9ZSnNjbnRXcENPM1MyV05Yb0NMQmtRRmZ3RDIrZXcvQk5acjg0UTFzSW1yOHhnSEZyTFVlN1ErNDBuc2orZG5rWGltWWI5aWdjPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyMzA5ODIzCWZpbGU65paH5Lmm6LSo5qOAXzAuMi41MV94NjQtc2V0dXAuZXhlClQ0alNTeXRmMHpiQ2Rtc2NHRGtkUW40bFNadHM5MkY0c3p0akdDc1dQL09EU0hUMTM3UW15c3BHbTdUeUoxZzFkZmFleGtZc2Y0c01SUmdsZHBvZkRnPT0K",
+      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.51/document-quality-inspector_0.2.51_x64-setup.exe.bin"
     },
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNa3lJQ0RUOHBOdURPQU9iZXdEVHZYSW8zdUJOaFA2bE0wdEZPY2JJRkRxK042ZGpsaWFPSE16WkJLQjV6RGlJWkVMN0g4dGFrT2ZnUkR2RzMxOG9qN2dzPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyMjI4MjE4CWZpbGU65paH5Lmm6LSo5qOALmFwcC50YXIuZ3oKU24wK0NKUUNVQ09ONnZ1ZzVTNFdSQ0s2V0lWOFBmd1hLbjcxUDc2MHc1azhnZ1JYVktxcXhsYTVubVNWR1lPcmdPNm1qUUF1NktUaTZqOFYzME55Q2c9PQo=",
-      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.50/document-quality-inspector_0.2.50_aarch64.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazQxa1Q4MkNoeEVQbWNTWDY1Tnk0NGJXTFBLN0NWaW9BdXkybG43WmlyVWZMcDM3UXJiMkNyNVhqN1RKc2g1SlpqTU9DT1hNTERnckF2TlB5Q3MwdUFFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyMzA5NzgyCWZpbGU65paH5Lmm6LSo5qOALmFwcC50YXIuZ3oKcE9LVVlaRFBrbHYyaWNKOGdCb0dJcldyMit5aklza0NrVWtnb0xrUVhZemQ3YnR4ZTdGencyLzlwRHFCMFhDTnhxbzdqMk56anhybkVRQWpJKzAyQWc9PQo=",
+      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.51/document-quality-inspector_0.2.51_aarch64.app.tar.gz"
     }
   }
 }
