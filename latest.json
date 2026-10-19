@@ -1,15 +1,15 @@
 {
-  "version": "0.2.54",
-  "notes": "文书质检 0.2.54\n\n- 三性报告按参考范文统一组织全文，放宽段落与表达限制，保留人员归属和事实依据。\n- 取消补充材料的固定文件大小、提取字节数和份数限制；长内容完整分段读取，Word采用流式解析。\n- 保留模型单次容量保护、分组归纳和失败续接。\n- 本地回归及构建通过；尚未完成真实大批次新版写作效果验收，本版未修改自动更新下载链路。\n",
-  "pub_date": "2026-10-19T10:00:10Z",
+  "version": "0.2.55",
+  "notes": "文书质检 0.2.55\n\n- 三性报告改为按问题归纳，院和人员仅作典型例子，不再逐院逐人画像。\n- 增加类别问题总量、前三家分布及占比，以及起诉书与审查报告对照，显示实际纳入类型与数量。\n- 补充综合报告默认只导出正文，去除内部引用标记；未完成分析不导出为正式报告。\n- 三性报告新增取消本轮和从头重新生成，保留历史报告及人工编辑。\n- 26项相关回归与本地构建通过；真实批次的新报告文风仍待验证。本版未调整自动更新下载链路。\n",
+  "pub_date": "2026-10-19T14:33:00Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazh6T2daZ0tuMEJML3VTMElyRjdBeUdDeGIwNlF4R3NGZGZ2VW82dVBMK3NlNnNOUnpOdEM1WFlIbExzZjgwNkVPaWlSRFBKQURLYlE4cUo4NXZkeWdVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyNDAzOTM5CWZpbGU65paH5Lmm6LSo5qOAXzAuMi41NF94NjQtc2V0dXAuZXhlCitYMlg2dHBRcERXS1BBVGZOWFNpSWVrMHh1cVJSNkxCTzJYeVBZOUREc3N0cDhiK0h0QnJneHE2TlR3dXdjOXJyZE5aMmtzRktEUTdQcmNCMGp0OUJBPT0K",
-      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.54/document-quality-inspector_0.2.54_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazFsdzJGcWI3SytBQXY0ZWpOUVZRdG9hWUg3YUFqdWUzWWZqVEcxNi9LLy9USWkybjg3OTAzeXlHaWZRUy96NjdpODNiY1lzS3k3RkY1cUM3bjZuVFFFPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyNDIwMzAzCWZpbGU65paH5Lmm6LSo5qOAXzAuMi41NV94NjQtc2V0dXAuZXhlCjBXNnRuY2l0bGdwRFJTSUUzVk5pWkVZRzhXVjRpSk51R2dyME5FTUcxRUl1NEo2UHNhSXlwaHVGY3J3OSt3WE5hV1dyWE9pNlJtUG1EVk9wRDQvQUJ3PT0K",
+      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.55/document-quality-inspector_0.2.55_x64-setup.exe.bin"
     },
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazRQRkVGdGIzNU1hbk9ic01ETlIxaHJhb0hIcWVFNDNkMDRQMXNselU1SjVVUE9PaUxiM01WaFQrRS9FS1VPTDBzWjA4dG91b0VKR2dpdEE2UGg1OXdZPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyNDAzODYyCWZpbGU65paH5Lmm6LSo5qOALmFwcC50YXIuZ3oKSFpDZmtzKzVpQ2I2RGlCNlRKU3pIeVFYbS94T3BPVHoyb2xyWU94L0xMQzRQaFJYZVJOTFg2ZGNzQlZKZEZxdkJ5Y0JnUkNqSHBMbytxOGRIbU1rQUE9PQo=",
-      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.54/document-quality-inspector_0.2.54_aarch64.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazVEZ2hrLytDZjFmUDdCVG8zQVUxZi9EdVVmVnFTVmppMi9CRlRTQTYvMXZGTnE0dzlJbDZuTGRIa25reDRpb1VOamZHZG1YODI4OWkrMDlIOGkrZ1FZPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyNDIwMjA4CWZpbGU65paH5Lmm6LSo5qOALmFwcC50YXIuZ3oKb2xjSG11SGVuSjFRYzIxdmFjK0VPRGlrVjRkaWhhZUVMa0FMOTJXZDI4ejFIOWlVeThJUFlzMVdQVmw2UHNOakJmSHU4bmdVc1VWSDUxMzBjTDlMREE9PQo=",
+      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.55/document-quality-inspector_0.2.55_aarch64.app.tar.gz"
     }
   }
 }
