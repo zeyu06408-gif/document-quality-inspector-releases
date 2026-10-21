@@ -1,15 +1,15 @@
 {
-  "version": "0.2.57",
-  "notes": "# 0.2.57\n\n- 三性及独立自由分析的前置归纳允许自然数字和自然表达，解除统计占位符及固定段长造成的反复失败，仍核对引用依据与人物角色。\n- 阅读片段失败后继续处理后续片段；前置阅读或归纳不完整时保存阶段稿和检查点，不使用缺失材料生成完整正文，续接完成后再写作。\n- 检查归纳是否实际缩小，末尾单条材料直接进入下一层，减少无效归纳与重试。\n- 补齐“检察官姓名＋案”的角色混淆拦截；内部检查口径编号转换为可读标签，原文及摘录不改写。\n- 补充校验失败原因、尝试次数和模式日志，不记录模型回复正文。旧报告与修订保留。\n\n验证采用离线模拟，包括600项事实的多层归纳、失败阻断、续接和后续片段处理。未完成用户原批次云端回放，不能保证所有人物识别和分析结论均准确。\n\n自由分析改为面向领导汇报的正式报告：采用严格质量审查视角，判断明确、语言直白，突出具体问题、质量差异、原因关联和整改措施，减少专业术语与重复免责；有依据地下判断，原因推测不冒充已查明事实。提示效果尚未完成真实模型验收。\n\n所有报告的质量比较统一采用每万字错误数：有效错误总数÷对应总字数×10000。人员、单位及年度排名、季度变化、模型分析输入和 Excel 汇总同步调整，篇均仅作补充。合并组汇总错误和字数，不平均个人比率；字数缺失不参与密度比较；零错误基准不生成错误倍数。补充报告采用基准报告保存时的统计，旧报告保留。\n\n最终离线验证：350项Rust库测试通过、24项忽略；前端构建、格式及Clippy通过。真实客户批次和Windows安装后验收待完成。macOS应用发布版编译通过，本机DMG打包脚本失败，不以本机产物作为签名安装包发布依据。\n",
-  "pub_date": "2026-10-20T07:58:54Z",
+  "version": "0.2.58",
+  "notes": "# 文书质检 0.2.58\n\n- 改进三性报告及独立自由分析的原文阅读：模型选择原文编号，程序直接回填对应文字，减少反复抄录失败导致的阶段未完成；仍校验引用真实性和人物角色。\n- 改进中间归纳的容量计算和重试提示，避免最终报告的扩写要求干扰材料压缩；不跳过失败材料生成完整报告。\n- 关于页新增“导出诊断包”，合并当前、轮转和按任务保存的日志。新增任务开始、缓存、重试、未完成清单及结束汇总，方便定位长任务问题。\n- 保留既有报告、修订和数据；受输入或提示词变化影响的阶段会重新分析。无数据库迁移。\n\n验证：Rust库测试355通过；前端构建、Clippy、格式和本地应用构建通过。用户提供样本的231个候选原文窗口均通过本地选择与回填验证。尚未进行真实模型及原批次完整重跑验收，不能据此宣称原68项全部消除。\n",
+  "pub_date": "2026-10-21T02:37:51Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazkvM1A3bWZKRGZCYkpGZ25oMWkwcm5lcDZOc2pROXdrT29MNjVCeDFWUVJOTU0zRVZuaEZrMUcwb09PMjNxclcyMVdocTF0OUJQUUdnOUp6NWRvckF3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyNDgzMDY1CWZpbGU65paH5Lmm6LSo5qOAXzAuMi41N194NjQtc2V0dXAuZXhlCnhPSHNZalFJZFZlMDZBQmVvMUFzUEdSMFdEWnRlRUgrZ054VHkxR3E5b0lxellPYlYxbVVtT2Qwem9qV2lDTjNzNVk2WUYzY0tUZWREYzhUcE45Y0N3PT0K",
-      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.57/document-quality-inspector_0.2.57_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazBUTUxGVG11SG5vM3NlQmVJUy9ieUxzVEdJcnIwWFdKdHRvYVVFeGlLbTdCeXcxa2pXdjVCM0pHTDkyUDROb3lCdUUwQWJrL0ZlSFV4L3R4VjlqS0E4PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyNTUwMTg5CWZpbGU65paH5Lmm6LSo5qOAXzAuMi41OF94NjQtc2V0dXAuZXhlCllzcXQyWWpQRmI0b2FhaFRUSFNlOCtrZWJZcTM4dHZMVTJ6MWwzYk1JVFIreExQMGx3TlBlWTlHckxOTXBLRUJ5TFVpSkJKb0tZTk9oSm9USlN5a0R3PT0K",
+      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.58/document-quality-inspector_0.2.58_x64-setup.exe.bin"
     },
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNa3pVek9TOHV1Nk1OSTVXYXJ2VU5IKzZDU3VkNDNxelc3M0NYeHJGcXA5RlFmaG8wdjR3ZkJWVlJPMWFsTWZUZ0FzdEwzcHZEd1VrdDJxYXlaZ2RobEFvPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyNDgyOTg1CWZpbGU65paH5Lmm6LSo5qOALmFwcC50YXIuZ3oKeWYvNE1hdjBoekJpdUtaSlQzSk5EclJ0dVhnczFYcU5rQjA1ZzVrd0M2QWM5MzdHVWQ0c3VReFJOZUY3U3lzM2h6NCtodnlyeXpUT2RDMGh6QXRmQXc9PQo=",
-      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.57/document-quality-inspector_0.2.57_aarch64.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazZwTTNUZjVONDJrOWtUcTJCa1pKcllaZVhoZGRzUW9IeGxnZytsaUR6Y2N5cWdLcndCZzNSNVN6LzYxRTMzdmcvRmJSM09rUkNFK2t6RWw4ZlRtS1FZPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyNTUwMDM2CWZpbGU65paH5Lmm6LSo5qOALmFwcC50YXIuZ3oKdENiNnBPd2tGZVplcmoybkY3eXhuQ3kzb0NYSDFyV2k1d3FBcitNMEZNNms4N2UzUERwU2NkcU10OWU0T1diYzBDazBUNkhBVEJOWGw4Q2lZVU5oQVE9PQo=",
+      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.58/document-quality-inspector_0.2.58_aarch64.app.tar.gz"
     }
   }
 }
