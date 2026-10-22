@@ -1,15 +1,15 @@
 {
-  "version": "0.2.60",
-  "notes": "# 文书质检 0.2.60\n\n- 修复升级后续接重复请求：兼容0.2.58成功的阅读与归纳缓存，输入一致且通过当前校验即可复用；0.2.59有效缓存继续复用。进度明确区分复用和实际请求。失败或输入变化的阶段及受影响的后续正文仍重新生成。\n- 三性及独立自由分析突出“暂停并保留进度”，运行时显示悬浮暂停栏。当前请求结束或超时后保存并停止；不清成功缓存，不覆盖旧报告。修复暂停后继续遍历剩余片段并重复记录失败的问题。\n- 六维雷达图名称统一为案件信息、事实认定、证据审查、说理分析、文字准确、格式规范；程序内新增解释，下载图片移除批注、保存日期和计算说明，保留标题、范围、图例及分数。改名不改变评分，不触发分析。\n\n验证：30项相关报告回归、暂停恢复专项及15项雷达回归通过；Clippy、前端和本地应用构建通过。真实云端请求中的暂停及用户原批次恢复尚未验收。\n",
-  "pub_date": "2026-10-22T04:06:59Z",
+  "version": "0.2.61",
+  "notes": "# 0.2.61\n\n- 普通三性报告允许按院别、人员展开分析和使用相应小标题。\n- 精简普通报告及独立自由分析的写作提示，减少固定套路，保留事实依据、人物身份和每万字错误数比较要求。\n- 归纳诊断增加对应文书编号，便于定位未完成分组。\n- 阅读和归纳提示及缓存兼容规则不变，可继续复用成功进度；最终正文按新写作要求生成新版本，旧报告保留。\n\n验证：分析模块30项测试通过、1项忽略，Clippy、前端构建与Tauri生产打包通过。未做客户原批次云端验收；人物角色报错尚待进一步定位，本版不宣称已解决。\n",
+  "pub_date": "2026-10-22T11:50:34Z",
   "platforms": {
     "windows-x86_64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazliSXp1blBlN1FwNldlcldPWWdsNS9qVlZ1QUpqNEZBeXZCa3dITnNZTmpwWFN0YmZaaFhONEhXMkFwV1ZvbkEyS0ZGeGpickc1aGNEcEN2dW5lUWd3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyNjQxOTc4CWZpbGU65paH5Lmm6LSo5qOAXzAuMi42MF94NjQtc2V0dXAuZXhlClpCVUowT0Y0T1pRWEtsbW5kSlpPenlCb3NCSEZsekpGZnNvcXBBK0phODliREUyNS83VmdoUyszQ29NZ1hOaGlqUGNTbmkvcjRDWnRMN3UwUE9TaUNnPT0K",
-      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.60/document-quality-inspector_0.2.60_x64-setup.exe.bin"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNa3lwTk02UWhiNmJuNUJzRUV1ZmhtQ3M2NkI1RDQ1N01wQzF4dm9iVTNoQjU2YkxRSzJ1VDJlR1ViWDNCQU5wcnNpM0VyOUsyY2hXTTZBNVEvYytHUkF3PQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyNjY5Nzg1CWZpbGU65paH5Lmm6LSo5qOAXzAuMi42MV94NjQtc2V0dXAuZXhlCms0c0ZlN09RemhzY3hwZW5hQlpVZVduelk5d1pXeEIrbjF0QktBbXNIWGpYa0hnNEd3aDh5TVBQVEtmakM0M3FNUUtWemtVRWRzaFFrOHA4WWdGZEFBPT0K",
+      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.61/document-quality-inspector_0.2.61_x64-setup.exe.bin"
     },
     "darwin-aarch64": {
-      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazF3M1ZOOVZrbmViRjFCQ0ZHUUhjK1NHTUlINWV6KzNqZUtBeWVIeWU4bldURTJoVFpRaVFhbCt5cWtuMnlOcHIrZnJUR2YvbGpWMXlONUN4VHhibmdVPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyNjQxOTIyCWZpbGU65paH5Lmm6LSo5qOALmFwcC50YXIuZ3oKNzNlMnEzd1JMNm9hVDNoVW1CTzRJVWlTOVRoYVdoMjFoKzRMbVZjMXcrZGc2dWQyaGQyVHpoeFZvTnEvSGlML216eW1QNnZSOEJkNjR1dUt3WWR4RGc9PQo=",
-      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.60/document-quality-inspector_0.2.60_aarch64.app.tar.gz"
+      "signature": "dW50cnVzdGVkIGNvbW1lbnQ6IHNpZ25hdHVyZSBmcm9tIHRhdXJpIHNlY3JldCBrZXkKUlVSN1RCd3FHQndNazE1UWJpMVZaUDVzajlxVThNaGs4TDdTSmZHamJqNVFTV29weGJlNVZJc2lhcE14VTIrcmV1T1BxcGI1NE1ZczVZNmY1eVBZVnhVUnp0SVpPUVNQOVFnPQp0cnVzdGVkIGNvbW1lbnQ6IHRpbWVzdGFtcDoxNzkyNjY5Njg5CWZpbGU65paH5Lmm6LSo5qOALmFwcC50YXIuZ3oKRG9OeTBjSXRRUmh2Vnd4LzJDeHloODNyZTBxTEFmZUxhdUZVU0l1MzU3R2J4bnJQQnRySVJmWXpXZXQ0WDVGVHNIajM3aTZUM2VDUjZlVW13M2ZlQVE9PQo=",
+      "url": "https://raw.githubusercontent.com/zeyu06408-gif/document-quality-inspector-releases/main/updates/v0.2.61/document-quality-inspector_0.2.61_aarch64.app.tar.gz"
     }
   }
 }
